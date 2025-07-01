@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host Dashboard - TripNest</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="host.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="host-body">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">TripNest</span>
+                </a>
+                <div class="auth-section">
+                    <a href="index.html" class="nav-link">Switch to traveling</a>
+                    <div class="auth-buttons">
+                        <span class="host-badge">Host Dashboard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container host-container">
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <div class="welcome-flex">
+                <div class="welcome-text">
+                    <h1 class="welcome-title">Welcome back, Host!</h1>
+                    <p class="welcome-subtitle">Manage your properties and track your earnings</p>
+                </div>
+                <div class="welcome-image">
+                    <img src="https://assets-global.website-files.com/5f6b7190797c1e1a2c2b3b3b/63e3b2e2e2e2e2e2e2e2e2e2_host-illustration.svg" alt="Host Illustration">
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-content">
+                    <i class="fas fa-dollar-sign stat-icon revenue-icon"></i>
+                    <div class="stat-details">
+                        <p class="stat-label">Total Revenue</p>
+                        <p class="stat-value" id="totalRevenue">$0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <i class="fas fa-calendar stat-icon bookings-icon"></i>
+                    <div class="stat-details">
+                        <p class="stat-label">Total Bookings</p>
+                        <p class="stat-value" id="totalBookings">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <i class="fas fa-home stat-icon properties-icon"></i>
+                    <div class="stat-details">
+                        <p class="stat-label">Properties</p>
+                        <p class="stat-value" id="totalProperties">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <i class="fas fa-star stat-icon rating-icon"></i>
+                    <div class="stat-details">
+                        <p class="stat-label">Avg Rating</p>
+                        <p class="stat-value" id="avgRating">0.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs-container">
+            <div class="tabs-list">
+                <button class="tab-button active" onclick="switchTab('overview')">Overview</button>
+                <button class="tab-button" onclick="switchTab('properties')">Properties</button>
+                <button class="tab-button" onclick="switchTab('bookings')">Bookings</button>
+                <button class="tab-button" onclick="switchTab('earnings')">Earnings</button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <!-- Recent Bookings -->
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Bookings</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="recentBookings" class="bookings-list">
+                            <!-- Bookings will be loaded by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Quick Actions</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="quick-actions">
+                            <a class="quick-action-button" href="add-property.html">
+                                <i class="fas fa-plus"></i>
+                                <span>Add New Property</span>
+                            </a>
+                            <button class="quick-action-button">
+                                <i class="fas fa-calendar"></i>
+                                <span>Manage Calendar</span>
+                            </button>
+                            <button class="quick-action-button">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>Update Pricing</span>
+                            </button>
+                            <a class="quick-action-button" href="analytics.html">
+                                <i class="fas fa-chart-line"></i>
+                                <span>View Analytics</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Properties Tab -->
+            <div class="tab-content" id="properties">
+                <div class="properties-header">
+                    <h2 class="properties-title">Your Properties</h2>
+                    <button class="add-property-button">
+                        <i class="fas fa-plus"></i>
+                        Add Property
+                    </button>
+                </div>
+                <div class="host-properties-grid" id="hostPropertiesGrid">
+                    <!-- Properties will be loaded by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Bookings Tab -->
+            <div class="tab-content" id="bookings">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3 class="card-title">All Bookings</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="allBookings" class="bookings-list">
+                            <!-- All bookings will be loaded by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings Tab -->
+            <div class="tab-content" id="earnings">
+                <div class="earnings-stats">
+                    <div class="earning-card">
+                        <div class="card-header">
+                            <h3 class="card-title">This Month</h3>
+                        </div>
+                        <div class="card-content">
+                            <p class="earning-amount month-earning">$12,450</p>
+                            <p class="earning-change">+15% from last month</p>
+                        </div>
+                    </div>
+                    <div class="earning-card">
+                        <div class="card-header">
+                            <h3 class="card-title">This Year</h3>
+                        </div>
+                        <div class="card-content">
+                            <p class="earning-amount year-earning" id="yearEarning">$0</p>
+                            <p class="earning-change">Total earnings</p>
+                        </div>
+                    </div>
+                    <div class="earning-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Average per Booking</h3>
+                        </div>
+                        <div class="card-content">
+                            <p class="earning-amount avg-earning" id="avgEarning">$0</p>
+                            <p class="earning-change">Per reservation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Earnings by Property</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="earningsByProperty" class="earnings-list">
+                            <!-- Earnings by property will be loaded by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="host.js"></script>
+</body>
+</html>

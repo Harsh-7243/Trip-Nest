@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - TripNest</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="property.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">TripNest</span>
+                </a>
+                <div class="auth-section">
+                    <div class="auth-buttons">
+                        <a href="login.html" class="auth-link">Login</a>
+                        <span class="separator">|</span>
+                        <a href="signup.html" class="auth-link">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <div class="container">
+        <button class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i> Back
+        </button>
+    </div>
+
+    <div class="container property-container">
+        <!-- Property Header -->
+        <div class="property-header">
+            <h1 class="property-title" id="propertyTitle">Loading...</h1>
+            <div class="property-meta">
+                <div class="property-info">
+                    <div class="rating-info">
+                        <i class="fas fa-star star-filled"></i>
+                        <span class="rating-value" id="propertyRating">0</span>
+                        <span class="reviews-count" id="reviewsCount">(0 reviews)</span>
+                    </div>
+                    <div class="location-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="propertyLocation">Loading...</span>
+                    </div>
+                </div>
+                <div class="property-actions">
+                    <button class="action-button">
+                        <i class="fas fa-share"></i>
+                        <span>Share</span>
+                    </button>
+                    <button class="action-button" onclick="toggleLike()">
+                        <i class="fas fa-heart" id="likeIcon"></i>
+                        <span>Save</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="image-gallery">
+            <div class="main-image-container">
+                <img id="mainImage" src="/placeholder.svg?height=400&width=600" alt="Property Image" class="main-image">
+                <button class="image-nav-button prev-button" onclick="previousImage()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="image-nav-button next-button" onclick="nextImage()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="image-indicators" id="imageIndicators">
+                    <!-- Indicators will be added by JavaScript -->
+                </div>
+                <button class="view-all-button" onclick="openGalleryModal()">View All Photos</button>
+            </div>
+        </div>
+
+        <!-- Image Gallery Modal -->
+        <div id="galleryModal" class="gallery-modal">
+            <div class="gallery-modal-content">
+                <span class="close-modal" onclick="closeGalleryModal()">&times;</span>
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- All images will be loaded here by JS -->
+                </div>
+            </div>
+        </div>
+
+        <div class="property-content">
+            <!-- Main Content -->
+            <div class="property-main">
+                <!-- Property Info -->
+                <div class="property-section">
+                    <div class="host-info">
+                        <div class="host-details">
+                            <h2 class="host-title" id="hostTitle">Loading...</h2>
+                            <p class="property-specs" id="propertySpecs">Loading...</p>
+                        </div>
+                        <img id="hostAvatar" src="/placeholder.svg?height=60&width=60" alt="Host" class="host-avatar">
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="property-section">
+                    <p class="property-description" id="propertyDescription">Loading...</p>
+                </div>
+
+                <!-- Amenities -->
+                <div class="property-section">
+                    <h3 class="section-title">What this place offers</h3>
+                    <div class="amenities-grid" id="amenitiesGrid">
+                        <!-- Amenities will be loaded by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- House Rules -->
+                <div class="property-section">
+                    <h3 class="section-title">House rules</h3>
+                    <ul class="rules-list" id="rulesList">
+                        <!-- Rules will be loaded by JavaScript -->
+                    </ul>
+                </div>
+
+                <!-- Reviews -->
+                <div class="property-section">
+                    <div class="reviews-header">
+                        <i class="fas fa-star star-filled"></i>
+                        <span class="reviews-title" id="reviewsTitle">Loading...</span>
+                    </div>
+                    <div class="reviews-list" id="reviewsList">
+                        <!-- Reviews will be loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Card -->
+            <div class="booking-sidebar">
+                <div class="booking-card">
+                    <div class="booking-header">
+                        <div class="price-info">
+                            <span class="price-amount" id="priceAmount">$0</span>
+                            <span class="price-period"> night</span>
+                        </div>
+                        <div class="rating-info">
+                            <i class="fas fa-star star-filled"></i>
+                            <span class="rating-value" id="bookingRating">0</span>
+                            <span class="reviews-count" id="bookingReviews">(0)</span>
+                        </div>
+                    </div>
+
+                    <div class="booking-form">
+                        <div class="date-inputs">
+                            <div class="date-field">
+                                <label class="date-label">Check-in</label>
+                                <input type="date" id="bookingCheckIn" class="date-input">
+                            </div>
+                            <div class="date-field">
+                                <label class="date-label">Checkout</label>
+                                <input type="date" id="bookingCheckOut" class="date-input">
+                            </div>
+                        </div>
+                        <div class="guests-field">
+                            <label class="date-label">Guests</label>
+                            <input type="number" id="bookingGuests" min="1" max="8" value="1" class="date-input">
+                        </div>
+                    </div>
+
+                    <button class="reserve-button" onclick="makeReservation()">Reserve</button>
+
+                    <p class="booking-note">You won't be charged yet</p>
+
+                    <div class="price-breakdown" id="priceBreakdown" style="display: none;">
+                        <!-- Price breakdown will be shown when dates are selected -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="property.js"></script>
+    <script>
+    function goBack() {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = 'index.html';
+        }
+    }
+    </script>
+</body>
+</html>

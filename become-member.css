@@ -1,0 +1,364 @@
+body.prime-body {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+.prime-container {
+    max-width: 700px;
+    margin: 3.5rem auto 0 auto;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(60, 60, 60, 0.13), 0 2px 8px rgba(230,57,99,0.08);
+    padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.prime-header,
+.prime-benefits,
+.prime-subscriptions,
+.prime-note {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.prime-header {
+    margin-bottom: 2.2rem;
+}
+.prime-crown {
+    color: #ffb800;
+    font-size: 2.7rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 8px #ffe06688);
+}
+.prime-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ff385c;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.5px;
+}
+.prime-tagline {
+    color: #64748b;
+    font-size: 1.13rem;
+    margin-bottom: 0.2rem;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+}
+.prime-benefits {
+    width: 100%;
+    margin-bottom: 2.2rem;
+    background: linear-gradient(90deg, #fff 60%, #f8fafc 100%);
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.06);
+    padding: 1.2rem 1.5rem;
+}
+.prime-benefits h2 {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.7rem;
+}
+.prime-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+}
+.prime-benefits li {
+    color: #222;
+    font-size: 1.08rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+}
+.prime-benefits li i {
+    color: #22c55e;
+    font-size: 1.1em;
+}
+.prime-subscriptions {
+    width: 100%;
+    margin-bottom: 2.2rem;
+}
+.prime-subscriptions h2 {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 1.2rem;
+}
+.prime-plans {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+.prime-plan-card {
+    background: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(102,126,234,0.08);
+    border: 1.5px solid #e2e8f0;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    min-width: 180px;
+    max-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: box-shadow 0.18s, border 0.18s, transform 0.18s;
+}
+.prime-plan-card:hover {
+    box-shadow: 0 8px 32px rgba(255,56,92,0.13);
+    border-color: #ff385c;
+    transform: translateY(-4px) scale(1.04);
+}
+.prime-featured {
+    border: 2.5px solid #ff385c;
+    background: linear-gradient(135deg, #fff0f5 60%, #f8fafc 100%);
+    box-shadow: 0 8px 32px rgba(255,56,92,0.10);
+    z-index: 2;
+}
+.prime-plan-card h3 {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+.prime-badge {
+    background: #ff385c;
+    color: #fff;
+    font-size: 0.92em;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 2px 10px;
+    margin-left: 0.5em;
+    display: inline-block;
+    letter-spacing: 0.01em;
+}
+.prime-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ff385c;
+    margin-bottom: 0.7rem;
+}
+.prime-price span {
+    color: #64748b;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.prime-family-note {
+    color: #64748b;
+    font-size: 0.98rem;
+    margin-bottom: 0.7rem;
+}
+.prime-join-btn {
+    background: linear-gradient(90deg, #ff385c 60%, #ff5e62 100%);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.7rem 2.2rem;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255,56,92,0.10);
+    transition: background 0.2s, transform 0.18s;
+    margin-top: 0.5rem;
+    letter-spacing: 0.01em;
+}
+.prime-join-btn:hover {
+    background: linear-gradient(90deg, #e11d48 60%, #ff385c 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+.prime-note {
+    margin-top: 2.2rem;
+    color: #64748b;
+    font-size: 1.05rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.06);
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+}
+.prime-note i {
+    color: #ff385c;
+    font-size: 1.2em;
+}
+.prime-plan-card.prime-selected {
+    border: 2.5px solid #22c55e;
+    box-shadow: 0 8px 32px rgba(34,197,94,0.13);
+    transform: scale(1.045);
+    background: linear-gradient(135deg, #f0fff4 60%, #f8fafc 100%);
+    z-index: 3;
+}
+.prime-toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1.08rem;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.3s;
+}
+.prime-toast.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.prime-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(34,34,34,0.25);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+.prime-modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.prime-modal-content {
+    background: #fff;
+    border-radius: 18px;
+    max-width: 370px;
+    width: 95vw;
+    padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+    box-shadow: 0 8px 32px rgba(60,60,60,0.18);
+    position: relative;
+    outline: none;
+    animation: fadeInModal 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(40px) scale(0.97); }
+    to { opacity: 1; transform: none; }
+}
+.prime-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #ff385c;
+    margin-bottom: 1.2rem;
+}
+.prime-modal-close {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.3rem;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 2;
+}
+.prime-modal-close:hover {
+    color: #ff385c;
+}
+.prime-modal-body h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.prime-modal-price {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ff385c;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.prime-modal-note {
+    color: #64748b;
+    font-size: 1.01rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+.prime-modal-confirm {
+    background: linear-gradient(90deg, #ff385c 60%, #ff5e62 100%);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.7rem 2.2rem;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255,56,92,0.10);
+    transition: background 0.2s, transform 0.18s;
+    margin-top: 0.5rem;
+    letter-spacing: 0.01em;
+    width: 100%;
+}
+.prime-modal-confirm:hover {
+    background: linear-gradient(90deg, #e11d48 60%, #ff385c 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+@media (max-width: 700px) {
+    .prime-container {
+        padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+        min-width: 0;
+    }
+    .prime-plans {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+    }
+    .prime-plan-card {
+        min-width: 0;
+        width: 100%;
+        max-width: 340px;
+    }
+    .prime-modal-content {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+        max-width: 98vw;
+    }
+}
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    color: #222;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 1.5rem 0 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s, border 0.2s, color 0.2s;
+}
+.back-button i {
+    font-size: 1.1rem;
+}
+.back-button:hover {
+    background: #f7f7f7;
+    border-color: #ff385c;
+    color: #ff385c;
+} 

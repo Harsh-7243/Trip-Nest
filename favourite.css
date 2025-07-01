@@ -1,0 +1,175 @@
+/* Favourites Page - Styled to Match Property Page */
+
+.favourites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+.fav-property-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border: 1px solid #eee;
+    overflow: hidden;
+    transition: box-shadow 0.22s, transform 0.22s, border 0.18s;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.fav-property-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    border-color: #ff385c;
+    transform: translateY(-4px) scale(1.015);
+    z-index: 1;
+}
+.fav-property-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    transition: filter 0.2s;
+}
+.fav-property-card:hover .fav-property-image {
+    filter: brightness(0.97) saturate(1.1);
+}
+.fav-property-info {
+    padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+.fav-property-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.2rem;
+}
+.fav-property-location {
+    color: #555;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+.fav-property-price {
+    color: #ff385c;
+    font-size: 1.13rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+}
+.fav-property-rating {
+    color: #ff385c;
+    font-size: 1.05rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+}
+.fav-remove-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(60,60,60,0.10);
+    transition: background 0.2s, box-shadow 0.2s, border 0.18s, transform 0.18s;
+    z-index: 2;
+    outline: none;
+}
+.fav-remove-btn:hover, .fav-remove-btn:focus {
+    background: #f7f7f7;
+    border-color: #ff385c;
+    box-shadow: 0 4px 16px rgba(230,57,99,0.13);
+    transform: scale(1.08);
+}
+.fav-remove-icon {
+    color: #ff385c;
+    font-size: 1.25em;
+    transition: color 0.2s;
+}
+.fav-remove-btn:hover .fav-remove-icon, .fav-remove-btn:focus .fav-remove-icon {
+    color: #b91c1c;
+}
+.no-favourites-msg {
+    padding: 2.5rem 1rem;
+    text-align: center;
+    color: #ff385c;
+    font-size: 1.18em;
+    background: #fff;
+    border-radius: 16px;
+    margin-top: 2.5rem;
+    box-shadow: 0 2px 12px rgba(230,57,99,0.06);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.welcome-section {
+    text-align: center;
+}
+.welcome-title, .welcome-subtitle {
+    text-align: center;
+}
+.no-favourites-msg::before {
+    display: none !important;
+}
+@media (max-width: 700px) {
+    .favourites-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    .fav-property-info {
+        padding: 1rem;
+    }
+    .fav-property-image {
+        height: 150px;
+    }
+}
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    color: #222;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 1.5rem 0 0.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s, border 0.2s, color 0.2s;
+}
+.back-button i {
+    font-size: 1.1rem;
+}
+.back-button:hover {
+    background: #f7f7f7;
+    border-color: #ff385c;
+    color: #ff385c;
+}
+
+/* Center the subtitle on the Favourites page */
+.welcome-subtitle {
+  text-align: center;
+  display: block;
+  margin: 0 auto 0.5em auto;
+  font-size: 1.15rem;
+  color: #666;
+  max-width: 500px;
+} 

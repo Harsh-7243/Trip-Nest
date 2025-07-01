@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourites - TripNest</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="favourite.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="host-body">
+    <div class="container host-container">
+        <button class="back-button" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
+        <div class="welcome-section">
+            <div class="welcome-flex" style="justify-content: center;">
+                <div class="welcome-text" style="justify-content: center;">
+                    <h1 class="welcome-title">Your Favourites</h1>
+                    <p class="welcome-subtitle">All the properties you love in one place</p>
+                </div>
+                <div class="welcome-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Favourites Illustration" style="background: white; border-radius: 12px; width: 120px; display: none;">
+                </div>
+            </div>
+        </div>
+        <div class="favourites-grid" id="favouritesGrid">
+            <!-- Favourite properties will be loaded by JS -->
+        </div>
+    </div>
+    <script src="favourite.js"></script>
+    <script>
+    function goBack() {
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            window.location.href = 'index.html';
+        }
+    }
+    </script>
+</body>
+</html> 
