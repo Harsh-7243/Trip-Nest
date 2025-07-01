@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Airbnb Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">airbnb</span>
+                </a>
+                <div class="auth-section">
+                    <div class="auth-buttons">
+                        <a href="login.html" class="auth-link">Login</a>
+                        <span class="separator">|</span>
+                        <a href="signup.html" class="auth-link">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-header">
+        <div class="container">
+            <div class="search-bar">
+                <div class="search-grid">
+                    <div class="search-field">
+                        <i class="fas fa-map-marker-alt search-icon"></i>
+                        <input type="text" id="searchLocation" placeholder="Where are you going?" class="search-input">
+                    </div>
+                    <div class="search-field">
+                        <input type="date" id="checkIn" class="search-input">
+                    </div>
+                    <div class="search-field">
+                        <input type="date" id="checkOut" class="search-input">
+                    </div>
+                    <div class="search-field-with-button">
+                        <div class="search-field">
+                            <input type="text" id="guests" placeholder="Add guests" class="search-input">
+                        </div>
+                        <button class="search-button" onclick="performSearch()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container search-container">
+        <!-- Results Header -->
+        <div class="results-header">
+            <div class="results-info">
+                <h1 class="results-title" id="resultsTitle">Loading...</h1>
+                <p class="results-subtitle" id="resultsSubtitle">Loading...</p>
+            </div>
+            <div class="results-controls">
+                <div class="view-controls">
+                    <button class="view-button active" id="gridView" onclick="setViewMode('grid')">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-button" id="listView" onclick="setViewMode('list')">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+                <select class="sort-select" id="sortSelect" onchange="sortResults()">
+                    <option value="recommended">Recommended</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+                <button class="filters-button" onclick="toggleFilters()">
+                    <i class="fas fa-filter"></i>
+                    <span>Filters</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="search-content">
+            <!-- Filters Sidebar -->
+            <div class="filters-sidebar" id="filtersSidebar">
+                <div class="filters-card">
+                    <div class="filter-section">
+                        <h3 class="filter-title">Price range</h3>
+                        <div class="price-range">
+                            <input type="range" id="minPrice" min="0" max="1000" value="0" class="price-slider">
+                            <input type="range" id="maxPrice" min="0" max="1000" value="1000" class="price-slider">
+                            <div class="price-labels">
+                                <span id="minPriceLabel">$0</span>
+                                <span id="maxPriceLabel">$1000+</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Property type</h3>
+                        <select class="filter-select" id="propertyTypeFilter" onchange="applyFilters()">
+                            <option value="all">All types</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="villa">Villa</option>
+                            <option value="cabin">Cabin</option>
+                            <option value="cottage">Cottage</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Amenities</h3>
+                        <div class="amenities-filters">
+                            <label class="amenity-filter">
+                                <input type="checkbox" value="wifi" onchange="applyFilters()">
+                                <span>WiFi</span>
+                            </label>
+                            <label class="amenity-filter">
+                                <input type="checkbox" value="kitchen" onchange="applyFilters()">
+                                <span>Kitchen</span>
+                            </label>
+                            <label class="amenity-filter">
+                                <input type="checkbox" value="parking" onchange="applyFilters()">
+                                <span>Parking</span>
+                            </label>
+                            <label class="amenity-filter">
+                                <input type="checkbox" value="pool" onchange="applyFilters()">
+                                <span>Pool</span>
+                            </label>
+                            <label class="amenity-filter">
+                                <input type="checkbox" value="hot-tub" onchange="applyFilters()">
+                                <span>Hot tub</span>
+                            </label>
+                            <label class="amenity-filter">
+                                <input type="checkbox" value="gym" onchange="applyFilters()">
+                                <span>Gym</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Grid -->
+            <div class="results-content">
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Results will be loaded by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="search.js"></script>
+</body>
+</html>
