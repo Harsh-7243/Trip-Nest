@@ -8,8 +8,10 @@ const featuredProperties = [
     rating: 4.9,
     reviews: 127,
     images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop",
+      "gallery/goa_beach_1.jpeg",
+      "gallery/goa_beach_2.jpeg",
+      "gallery/goa_beach_3.jpeg",
+      "gallery/goa_beach_4.jpeg",
     ],
     host: "Sarah",
     type: "Entire villa",
@@ -27,8 +29,8 @@ const featuredProperties = [
     rating: 4.8,
     reviews: 89,
     images: [
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      "gallery/manali_1.jpg",
+      "gallery/manali_2.jpg",
     ],
     host: "Mike",
     type: "Entire cabin",
@@ -46,8 +48,8 @@ const featuredProperties = [
     rating: 4.7,
     reviews: 203,
     images: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop",
+      "gallery/mumbai_2.jpg",
+      "gallery/mumbai_4.jpg",
     ],
     host: "Emma",
     type: "Entire apartment",
@@ -65,8 +67,9 @@ const featuredProperties = [
     rating: 4.9,
     reviews: 156,
     images: [
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop",
+      "gallery/jaipur_1.jpg",
+      "gallery/jaipur_2.jpg",
+      "gallery/jaipur_3.jpg",
     ],
     host: "David",
     type: "Entire house",
@@ -84,8 +87,8 @@ const featuredProperties = [
     rating: 4.8,
     reviews: 94,
     images: [
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop",
+      "gallery/jaisalmer_1.jpg",
+      "gallery/jaisalmer_2.jpg",
     ],
     host: "Lisa",
     type: "Entire house",
@@ -103,8 +106,10 @@ const featuredProperties = [
     rating: 4.9,
     reviews: 178,
     images: [
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop",
+      "gallery/nainital_1.jpeg",
+      "gallery/nainital_2.jpg",
+      "gallery/nainital_3.jpg",
+      "gallery/nainital_4.jpeg",
     ],
     host: "John",
     type: "Entire cottage",
@@ -122,8 +127,8 @@ const featuredProperties = [
     rating: 4.8,
     reviews: 112,
     images: [
-      "https://images.unsplash.com/photo-1464983953574-0892a716854b?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400&h=300&fit=crop",
+      "gallery/banglore_1.jpg",
+      "gallery/banglore_2.jpg",
     ],
     host: "Olivia",
     type: "Entire loft",
@@ -141,8 +146,9 @@ const featuredProperties = [
     rating: 4.7,
     reviews: 98,
     images: [
-      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&h=300&fit=crop",
+      "gallery/munnar_1.jpg",
+      "gallery/munnar_2.jpg",
+      "gallery/munnar_3.jpg",
     ],
     host: "Ethan",
     type: "Entire house",
@@ -160,8 +166,9 @@ const featuredProperties = [
     rating: 4.6,
     reviews: 76,
     images: [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?w=400&h=300&fit=crop",
+      "gallery/puducherry_1.jpg",
+      "gallery/puducherry_2.jpg",
+      "gallery/puducherry_3.jpg",
     ],
     host: "Priya",
     type: "Entire bungalow",
@@ -179,8 +186,9 @@ const featuredProperties = [
     rating: 4.8,
     reviews: 134,
     images: [
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&h=300&fit=crop",
+      "gallery/delhi_1.jpg",
+      "gallery/delhi_2.jpg",
+      "gallery/delhi_3.jpg",
     ],
     host: "Lukas",
     type: "Entire studio",
@@ -198,8 +206,9 @@ const featuredProperties = [
     rating: 4.9,
     reviews: 201,
     images: [
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?w=400&h=300&fit=crop",
+      "gallery/waynad_1.jpg",
+      "gallery/waynad_2.jpeg",
+      "gallery/waynad_3.jpg",
     ],
     host: "Ayu",
     type: "Entire treehouse",
@@ -217,8 +226,9 @@ const featuredProperties = [
     rating: 5.0,
     reviews: 88,
     images: [
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&fit=crop",
+      "gallery/udaipur_1.jpeg",
+      "gallery/udaipur_2.jpeg",
+      "gallery/udaipur_3.jpeg",
     ],
     host: "Fatima",
     type: "Entire penthouse",
@@ -227,6 +237,264 @@ const featuredProperties = [
     bathrooms: 3,
     category: "luxury",
     description: "Enjoy royal luxury in Udaipur! This penthouse has panoramic views of Lake Pichola, rooftop pool, and is close to City Palace and Jag Mandir.",
+  },
+  // Hyderabad
+  {
+    id: 101,
+    title: "Hyderabad Charminar Retreat",
+    location: "Hyderabad, Telangana",
+    price: 220,
+    rating: 4.7,
+    reviews: 54,
+    images: [
+      "gallery/hyderabad_1.jpg",
+      "gallery/hyderabad_2.jpg",
+    ],
+    host: "Aarav",
+    type: "Apartment",
+    guests: 4,
+    bedrooms: 2,
+    bathrooms: 2,
+    category: "city",
+    description: "Stay near the iconic Charminar and enjoy Hyderabadi cuisine and culture!",
+  },
+  {
+    id: 102,
+    title: "Hitech City Luxe Flat",
+    location: "Hyderabad, Telangana",
+    price: 340,
+    rating: 4.8,
+    reviews: 67,
+    images: [
+      "gallery/hitech_1.jpg",
+      "gallery/hitech_2.jpg",
+    ],
+    host: "Priya",
+    type: "Flat",
+    guests: 6,
+    bedrooms: 3,
+    bathrooms: 2,
+    category: "city",
+    description: "Modern flat in Hitech City, perfect for business and leisure travelers.",
+  },
+  // Chennai
+  {
+    id: 103,
+    title: "Marina Beach House",
+    location: "Chennai, Tamil Nadu",
+    price: 260,
+    rating: 4.6,
+    reviews: 48,
+    images: [
+      "gallery/marina_1.jpg",
+      "gallery/marina_2.jpg",
+    ],
+    host: "Lakshmi",
+    type: "House",
+    guests: 5,
+    bedrooms: 2,
+    bathrooms: 2,
+    category: "beachfront",
+    description: "Walk to Marina Beach and enjoy the best of Chennai's coast!",
+  },
+  {
+    id: 104,
+    title: "Chennai City Studio",
+    location: "Chennai, Tamil Nadu",
+    price: 180,
+    rating: 4.5,
+    reviews: 39,
+    images: [
+      "gallery/chennai_1.jpg",
+      "gallery/chennai_2.jpg",
+      "gallery/chennai_3.jpg",
+    ],
+    host: "Ravi",
+    type: "Studio",
+    guests: 2,
+    bedrooms: 1,
+    bathrooms: 1,
+    category: "city",
+    description: "Cozy studio in the heart of Chennai, close to shopping and dining.",
+  },
+  // Shimla
+  {
+    id: 105,
+    title: "Shimla Hilltop Cottage",
+    location: "Shimla, Himachal Pradesh",
+    price: 270,
+    rating: 4.8,
+    reviews: 61,
+    images: [
+      "gallery/shimla_1.jpg",
+      "gallery/shimla_2.jpg",
+      "gallery/shimla_3.jpg",
+    ],
+    host: "Meera",
+    type: "Cottage",
+    guests: 5,
+    bedrooms: 2,
+    bathrooms: 2,
+    category: "countryside",
+    description: "Charming cottage with panoramic views of the Shimla hills.",
+  },
+  {
+    id: 106,
+    title: "Mall Road View Apartment",
+    location: "Shimla, Himachal Pradesh",
+    price: 210,
+    rating: 4.6,
+    reviews: 44,
+    images: [
+      "gallery/shimla_3.jpg",
+      "gallery/shimla_4.jpg",
+    ],
+    host: "Rohit",
+    type: "Apartment",
+    guests: 3,
+    bedrooms: 1,
+    bathrooms: 1,
+    category: "city",
+    description: "Modern apartment steps from Shimla's famous Mall Road.",
+  },
+  {
+    id: 107,
+    title: "Pine View Villa",
+    location: "Shimla, Himachal Pradesh",
+    price: 320,
+    rating: 4.9,
+    reviews: 72,
+    images: [
+      "gallery/pineview_1.jpg",
+      "gallery/pineview_2.jpg",
+    ],
+    host: "Anjali",
+    type: "Villa",
+    guests: 7,
+    bedrooms: 3,
+    bathrooms: 3,
+    category: "countryside",
+    description: "Spacious villa surrounded by pine forests, perfect for families.",
+  },
+  // Agra
+  {
+    id: 108,
+    title: "Taj Mahal View Suite",
+    location: "Agra, Uttar Pradesh",
+    price: 350,
+    rating: 4.9,
+    reviews: 80,
+    images: [
+      "gallery/tajmahal_1.jpg",
+      "gallery/tajmahal_2.jpg",
+      "gallery/tajmahal_3.jpg",
+    ],
+    host: "Amit",
+    type: "Suite",
+    guests: 4,
+    bedrooms: 2,
+    bathrooms: 2,
+    category: "luxury",
+    description: "Luxury suite with a direct view of the Taj Mahal.",
+  },
+  {
+    id: 109,
+    title: "Agra Heritage Homestay",
+    location: "Agra, Uttar Pradesh",
+    price: 180,
+    rating: 4.5,
+    reviews: 33,
+    images: [
+      "gallery/agra_1.jpg",
+      "gallery/agra_2.jpg",
+    ],
+    host: "Sana",
+    type: "Homestay",
+    guests: 3,
+    bedrooms: 1,
+    bathrooms: 1,
+    category: "unique",
+    description: "Experience Agra's culture in this cozy heritage homestay.",
+  },
+  {
+    id: 110,
+    title: "Yamuna Riverside Villa",
+    location: "Agra, Uttar Pradesh",
+    price: 290,
+    rating: 4.7,
+    reviews: 51,
+    images: [
+      "gallery/yamuna_1.jpg",
+      "gallery/yamuna_2.jpg",
+      "gallery/yamuna_3.jpg",
+    ],
+    host: "Rakesh",
+    type: "Villa",
+    guests: 6,
+    bedrooms: 3,
+    bathrooms: 2,
+    category: "luxury",
+    description: "Elegant villa on the banks of Yamuna, close to the Taj Mahal.",
+  },
+  // Kolkata
+  {
+    id: 201,
+    title: "Victoria Memorial View Apartment",
+    location: "Kolkata, West Bengal",
+    price: 260,
+    rating: 4.8,
+    reviews: 58,
+    images: [
+      "gallery/kolkata_1.jpg",
+      "gallery/kolkata_2.jpg",
+      "gallery/kolkata_3.jpg",
+    ],
+    host: "Sourav",
+    type: "Apartment",
+    guests: 4,
+    bedrooms: 2,
+    bathrooms: 2,
+    category: "city",
+    description: "Modern apartment with stunning views of Victoria Memorial, central Kolkata.",
+  },
+  {
+    id: 202,
+    title: "Howrah Bridge Riverside Suite",
+    location: "Kolkata, West Bengal",
+    price: 320,
+    rating: 4.9,
+    reviews: 73,
+    images: [
+      "gallery/howrah_1.jpg",
+      "gallery/howrah_2.jpg",
+      "gallery/howrah_3.jpg",
+    ],
+    host: "Priyanka",
+    type: "Suite",
+    guests: 5,
+    bedrooms: 2,
+    bathrooms: 2,
+    category: "city",
+    description: "Elegant suite on the banks of the Hooghly, near Howrah Bridge.",
+  },
+  {
+    id: 203,
+    title: "Park Street Heritage Home",
+    location: "Kolkata, West Bengal",
+    price: 210,
+    rating: 4.7,
+    reviews: 41,
+    images: [
+      "gallery/kolkata_1.jpg",
+      "gallery/kolkata_3.jpg",
+    ],
+    host: "Anindita",
+    type: "Heritage Home",
+    guests: 3,
+    bedrooms: 1,
+    bathrooms: 1,
+    category: "unique",
+    description: "Charming heritage home in the heart of Park Street, Kolkata's cultural hub.",
   },
 ]
 
@@ -261,7 +529,11 @@ function loadProperties() {
   const grid = document.getElementById("propertiesGrid")
   if (!grid) return
   grid.innerHTML = ""
-  currentProperties.forEach((property) => {
+  let toShow = currentProperties
+  if (!window.showingMoreProperties) {
+    toShow = currentProperties.slice(0, 6)
+  }
+  toShow.forEach((property) => {
     const propertyCard = createPropertyCard(property)
     grid.appendChild(propertyCard)
   })
@@ -332,14 +604,24 @@ function toggleFavourite(propertyId) {
   updateFavouriteUI(propertyId);
 }
 
-// Filter by category
-function filterByCategory(category) {
-  if (category === "all") {
-    currentProperties = [...featuredProperties]
-  } else {
-    currentProperties = featuredProperties.filter((property) => property.category === category)
+// Remove old filterByCategory and add filterByCity for city-based filtering
+function filterByCity(city, btn) {
+  document.querySelectorAll('.city-item').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  // Ripple
+  if (btn) {
+    const ripple = document.createElement('span');
+    ripple.className = 'category-ripple';
+    btn.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 500);
   }
-  loadProperties()
+  // Filter properties by city
+  if (city === 'all') {
+    currentProperties = [...featuredProperties];
+  } else {
+    currentProperties = featuredProperties.filter(p => p.location.toLowerCase().includes(city.toLowerCase()));
+  }
+  loadProperties();
 }
 
 // Perform search

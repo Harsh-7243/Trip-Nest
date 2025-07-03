@@ -7,91 +7,130 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="become-member.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body class="prime-body">
-    <button class="back-button" onclick="window.location.href='index.html'">
-        <i class="fas fa-arrow-left"></i> Back
+    <button class="floating-back-btn" onclick="window.location.href='index.html'" title="Back to Home">
+        <i class="fas fa-arrow-left"></i>
     </button>
-    <div class="prime-header">
-        <i class="fas fa-crown prime-crown"></i>
-        <h1>TripNest Prime</h1>
-        <p class="prime-tagline">Unlock exclusive travel benefits!</p>
-    </div>
-    <div class="prime-benefits">
-        <h2>Why become a Prime member?</h2>
-        <ul>
-            <li><i class="fas fa-check-circle"></i> Extra discounts on every booking</li>
-            <li><i class="fas fa-check-circle"></i> Early access to new properties</li>
-            <li><i class="fas fa-check-circle"></i> Priority customer support</li>
-            <li><i class="fas fa-check-circle"></i> Free cancellation on select stays</li>
-            <li><i class="fas fa-check-circle"></i> Special Prime-only deals</li>
-        </ul>
-    </div>
-    <div class="prime-subscriptions">
-        <h2>Choose your Prime plan</h2>
-        <div class="prime-plans">
-            <div class="prime-plan-card" data-plan="monthly">
-                <h3>Monthly</h3>
-                <div class="prime-price">₹199 <span>/ month</span></div>
-                <button class="prime-join-btn">Join Monthly</button>
+    <div class="prime-container">
+        <header class="prime-header">
+            <div class="prime-hero-animation">
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_9wpyhdzo.json" background="transparent" speed="1" style="width: 100px; height: 100px;" loop autoplay></lottie-player>
             </div>
-            <div class="prime-plan-card prime-featured" data-plan="yearly">
-                <h3>Yearly <span class="prime-badge">Best Value</span></h3>
-                <div class="prime-price">₹1,499 <span>/ year</span></div>
-                <button class="prime-join-btn">Join Yearly</button>
+            <h1>TripNest Prime</h1>
+            <p class="prime-tagline">Unlock exclusive travel benefits!</p>
+        </header>
+        <section class="prime-benefits">
+            <h2>Why become a Prime member?</h2>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Extra discounts on every booking</li>
+                <li><i class="fas fa-check-circle"></i> Early access to new properties</li>
+                <li><i class="fas fa-check-circle"></i> Priority customer support</li>
+                <li><i class="fas fa-check-circle"></i> Free cancellation on select stays</li>
+                <li><i class="fas fa-check-circle"></i> Special Prime-only deals</li>
+            </ul>
+        </section>
+        <section class="prime-comparison">
+            <h2>Compare Plans</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Monthly</th>
+                        <th>Yearly</th>
+                        <th>Family</th>
+                        <th>Student</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Extra Discounts</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr>
+                    <tr><td>Early Access</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr>
+                    <tr><td>Priority Support</td><td>✔️</td><td>✔️</td><td>✔️</td><td></td></tr>
+                    <tr><td>Free Cancellation</td><td></td><td>✔️</td><td>✔️</td><td></td></tr>
+                    <tr><td>Family/Group</td><td></td><td></td><td>Up to 4</td><td></td></tr>
+                    <tr><td>Special Deals</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="prime-subscriptions">
+            <h2>Choose your Prime plan</h2>
+            <div class="prime-plans">
+                <div class="prime-plan-card" data-plan="monthly">
+                    <h3>Monthly</h3>
+                    <div class="prime-price">₹199 <span>/ month</span></div>
+                    <button class="prime-join-btn">Join Monthly</button>
+                </div>
+                <div class="prime-plan-card prime-featured" data-plan="yearly">
+                    <h3>Yearly <span class="prime-badge">Best Value</span></h3>
+                    <div class="prime-price">₹1,499 <span>/ year</span></div>
+                    <button class="prime-join-btn">Join Yearly</button>
+                </div>
+                <div class="prime-plan-card" data-plan="family">
+                    <h3>Family</h3>
+                    <div class="prime-price">₹2,499 <span>/ year</span></div>
+                    <div class="prime-family-note">Up to 4 family members</div>
+                    <button class="prime-join-btn">Join Family</button>
+                </div>
+                <div class="prime-plan-card" data-plan="student">
+                    <h3>Student</h3>
+                    <div class="prime-price">₹99 <span>/ month</span></div>
+                    <div class="prime-family-note">Valid student ID required</div>
+                    <button class="prime-join-btn">Join Student</button>
+                </div>
             </div>
-            <div class="prime-plan-card" data-plan="family">
-                <h3>Family</h3>
-                <div class="prime-price">₹2,499 <span>/ year</span></div>
-                <div class="prime-family-note">Up to 4 family members</div>
-                <button class="prime-join-btn">Join Family</button>
+        </section>
+        <section class="prime-testimonials">
+            <h2>What our members say</h2>
+            <div class="testimonials-list">
+                <div class="testimonial">
+                    <img src="gallery/avatar_1.jpeg" alt="User" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <p>"TripNest Prime saved me thousands on my family trip. The support is top-notch!"</p>
+                        <span>- Anjali, Mumbai</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <img src="gallery/avatar_2.jpeg" alt="User" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <p>"Early access to new properties is a game changer. Highly recommend!"</p>
+                        <span>- Rahul, Bangalore</span>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <img src="gallery/avatar_3.jpeg" alt="User" class="testimonial-avatar">
+                    <div class="testimonial-content">
+                        <p>"The discounts and free cancellations make every booking stress-free."</p>
+                        <span>- Priya, Delhi</span>
+                    </div>
+                </div>
             </div>
-            <div class="prime-plan-card" data-plan="student">
-                <h3>Student</h3>
-                <div class="prime-price">₹99 <span>/ month</span></div>
-                <div class="prime-family-note">Valid student ID required</div>
-                <button class="prime-join-btn">Join Student</button>
+        </section>
+        <section class="prime-faq">
+            <h2>Frequently Asked Questions</h2>
+            <input id="faqSearch" type="text" placeholder="Search FAQs..." class="faq-search" />
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">Can I cancel my Prime membership anytime?</button>
+                    <div class="faq-answer">Yes, you can cancel anytime from your account settings. No hidden fees.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How do I get early access to new properties?</button>
+                    <div class="faq-answer">Prime members receive email notifications and app alerts for early access listings.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is there a family plan?</button>
+                    <div class="faq-answer">Yes, the Family plan covers up to 4 members. Each gets their own account benefits.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What payment methods are accepted?</button>
+                    <div class="faq-answer">We accept all major credit/debit cards, UPI, and net banking.</div>
+                </div>
             </div>
-            <div class="prime-plan-card" data-plan="business">
-                <h3>Business</h3>
-                <div class="prime-price">₹3,999 <span>/ year</span></div>
-                <div class="prime-family-note">For teams & companies</div>
-                <button class="prime-join-btn">Join Business</button>
-            </div>
-            <div class="prime-plan-card" data-plan="lifetime">
-                <h3>Lifetime</h3>
-                <div class="prime-price">₹9,999 <span>one-time</span></div>
-                <div class="prime-family-note">Unlimited access, forever</div>
-                <button class="prime-join-btn">Join Lifetime</button>
-            </div>
-            <div class="prime-plan-card" data-plan="couple">
-                <h3>Couple</h3>
-                <div class="prime-price">₹2,999 <span>/ year</span></div>
-                <div class="prime-family-note">For 2 adults</div>
-                <button class="prime-join-btn">Join Couple</button>
-            </div>
-            <div class="prime-plan-card" data-plan="senior">
-                <h3>Senior Citizen</h3>
-                <div class="prime-price">₹1,199 <span>/ year</span></div>
-                <div class="prime-family-note">Age 60+ only</div>
-                <button class="prime-join-btn">Join Senior</button>
-            </div>
-            <div class="prime-plan-card" data-plan="youth">
-                <h3>Youth Explorer</h3>
-                <div class="prime-price">₹149 <span>/ month</span></div>
-                <div class="prime-family-note">Age 18-25 only</div>
-                <button class="prime-join-btn">Join Youth</button>
-            </div>
-            <div class="prime-plan-card" data-plan="corporateplus">
-                <h3>Corporate Plus</h3>
-                <div class="prime-price">₹7,999 <span>/ year</span></div>
-                <div class="prime-family-note">Up to 10 users, premium support</div>
-                <button class="prime-join-btn">Join Corporate Plus</button>
-            </div>
+        </section>
+        <div class="prime-note">
+            <i class="fas fa-info-circle"></i> Cancel anytime. No hidden fees. Enjoy your TripNest Prime experience!
         </div>
-    </div>
-    <div class="prime-note">
-        <i class="fas fa-info-circle"></i> Cancel anytime. No hidden fees. Enjoy your TripNest Prime experience!
     </div>
     <script src="become-member.js"></script>
 </body>

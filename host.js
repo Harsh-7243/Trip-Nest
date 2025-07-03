@@ -11,7 +11,7 @@ const hostProperties = [
     reviews: 127,
     bookings: 89,
     revenue: 40050,
-    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=300&h=200&fit=crop",
+    image: "gallery/goa_beach_1.jpeg",
     status: "active",
     lastBooking: "2024-03-15",
     occupancy: 85,
@@ -25,7 +25,7 @@ const hostProperties = [
     reviews: 89,
     bookings: 67,
     revenue: 18760,
-    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=300&h=200&fit=crop",
+    image: "gallery/manali_1.jpg",
     status: "active",
     lastBooking: "2024-03-18",
     occupancy: 72,
@@ -39,7 +39,7 @@ const hostProperties = [
     reviews: 156,
     bookings: 94,
     revenue: 30080,
-    image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=300&h=200&fit=crop",
+    image: "gallery/jaipur_1.jpg",
     status: "active",
     lastBooking: "2024-03-20",
     occupancy: 78,
@@ -55,7 +55,7 @@ const recentBookings = [
     checkOut: "2024-03-28",
     amount: 1350,
     status: "confirmed",
-    guestAvatar: "https://randomuser.me/api/portraits/men/1.jpg",
+    guestAvatar: "gallery/avatar_1.jpeg",
   },
   {
     id: 2,
@@ -65,7 +65,7 @@ const recentBookings = [
     checkOut: "2024-04-02",
     amount: 840,
     status: "pending",
-    guestAvatar: "https://randomuser.me/api/portraits/women/2.jpg",
+    guestAvatar: "gallery/avatar_2.jpeg",
   },
   {
     id: 3,
@@ -75,7 +75,7 @@ const recentBookings = [
     checkOut: "2024-04-08",
     amount: 960,
     status: "confirmed",
-    guestAvatar: "https://randomuser.me/api/portraits/men/3.jpg",
+    guestAvatar: "gallery/avatar_3.jpeg",
   },
   {
     id: 4,
@@ -85,18 +85,27 @@ const recentBookings = [
     checkOut: "2024-04-13",
     amount: 1350,
     status: "confirmed",
-    guestAvatar: "https://randomuser.me/api/portraits/women/4.jpg",
+    guestAvatar: "gallery/avatar_4.jpeg",
   },
 ]
 
 let activeTab = "overview"
 let currentStats = {}
+let avatarChanged = false;
 
 // Initialize the page with animations
 document.addEventListener("DOMContentLoaded", () => {
   initializeDashboard()
   setupEventListeners()
   startStatsAnimation()
+  const btn = document.querySelector('.floating-back-btn');
+  if (btn) {
+    console.log('Floating back button is present and should be visible.');
+    btn.style.display = 'block';
+    btn.style.opacity = '1';
+  } else {
+    alert('Floating back button is NOT present in the DOM!');
+  }
 })
 
 function initializeDashboard() {
@@ -313,7 +322,7 @@ function createHostPropertyElement(property) {
   const occupancyColor = property.occupancy > 80 ? '#10b981' : property.occupancy > 60 ? '#f59e0b' : '#ef4444'
 
   propertyDiv.innerHTML = `
-    <img src="${property.image}" alt="${property.title}" class="host-property-image">
+    <img src="${property.image || 'gallery/goa_beach_1.jpeg'}" alt="${property.title}" class="host-property-image">
     <div class="host-property-content">
       <div class="host-property-header">
         <div>
@@ -412,7 +421,7 @@ function loadEarningsByProperty() {
 
     earningDiv.innerHTML = `
       <div class="earning-property-info">
-        <img src="${property.image}" alt="${property.title}" class="earning-property-image">
+        <img src="${property.image || 'gallery/goa_beach_1.jpeg'}" alt="${property.title}" class="earning-property-image">
         <div>
           <h4>${property.title}</h4>
           <p>${property.location}</p>
@@ -511,4 +520,43 @@ function startStatsAnimation() {
   setTimeout(() => {
     loadStats()
   }, 500)
+}
+
+avatarInput.onchange = function() {
+    const file = this.files[0];
+    if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            avatarImg.src = e.target.result;
+            editedUser.avatar = e.target.result;
+            saveBar.style.display = 'flex';
+            changesMade = true;
+            avatarChanged = true;
+        };
+        reader.readAsDataURL(file);
+    }
+};
+
+function saveChanges(e) {
+    e.preventDefault();
+    // Save if a field is being edited or avatar was changed
+    if (!editingField && !avatarChanged) return;
+    if (editingField) {
+        const val = editEls[editingField].value;
+        if (val !== user[editingField]) {
+            editedUser[editingField] = val;
+            changesMade = true;
+        }
+        if (editingField === 'dob') {
+            editedUser.joined = val.split('-')[0] || user.joined;
+        }
+    }
+    if (changesMade || avatarChanged) {
+        user = { ...user, ...editedUser };
+        localStorage.setItem('tripnestUser', JSON.stringify(user));
+        showToast('Profile updated!');
+    }
+    avatarChanged = false; // reset
+    renderView();
+    if (avatarChanged) saveBar.style.display = 'flex';
 }

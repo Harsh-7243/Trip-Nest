@@ -1,23 +1,33 @@
-// Search page functionality
+// Redesigned TripNest Search Results JS
 
-const searchResults = [
+const allProperties = [
   {
     id: 1,
-    title: "Luxury Beachfront Villa",
-    location: "Malibu, California",
+    title: "Goa Beachfront Villa",
+    location: "Goa, India",
     price: 450,
     rating: 4.9,
     reviews: 127,
     images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop",
+      "gallery/goa_beach_1.jpeg",
+      "gallery/goa_beach_2.jpeg",
+      "gallery/goa_beach_3.jpeg",
+      "gallery/goa_beach_4.jpeg",
     ],
     host: "Sarah",
-    type: "Entire villa",
+    type: "villa",
     guests: 8,
     bedrooms: 4,
     bathrooms: 3,
-    amenities: ["WiFi", "Kitchen", "Parking", "Pool"],
+    amenities: [
+      { icon: "fas fa-wifi", name: "wifi" },
+      { icon: "fas fa-car", name: "parking" },
+      { icon: "fas fa-tv", name: "tv" },
+      { icon: "fas fa-coffee", name: "kitchen" },
+      { icon: "fas fa-swimming-pool", name: "pool" },
+      { icon: "fas fa-dumbbell", name: "gym" },
+    ],
+    description: "Experience the magic of Goa in this luxurious beachfront villa. Enjoy private beach access, Goan cuisine, and vibrant nightlife just steps away. Perfect for families or groups seeking sun, sand, and serenity on India's most famous coast.",
   },
   {
     id: 2,
@@ -27,8 +37,8 @@ const searchResults = [
     rating: 4.8,
     reviews: 89,
     images: [
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      "gallery/mumbai_2.jpg",
+      "gallery/mumbai_4.jpg",
     ],
     host: "Mike",
     type: "Entire cabin",
@@ -45,8 +55,9 @@ const searchResults = [
     rating: 4.7,
     reviews: 203,
     images: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop",
+      "gallery/jaipur_1.jpg",
+      "gallery/jaipur_2.jpg",
+      "gallery/jaipur_3.jpg",
     ],
     host: "Emma",
     type: "Entire apartment",
@@ -63,8 +74,10 @@ const searchResults = [
     rating: 4.9,
     reviews: 156,
     images: [
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop",
+      "gallery/nainital_1.jpeg",
+      "gallery/nainital_2.jpg",
+      "gallery/nainital_3.jpg",
+      "gallery/nainital_4.jpeg",
     ],
     host: "David",
     type: "Entire house",
@@ -81,8 +94,8 @@ const searchResults = [
     rating: 4.8,
     reviews: 94,
     images: [
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop",
+      "gallery/banglore_1.jpg",
+      "gallery/banglore_2.jpg",
     ],
     host: "Lisa",
     type: "Entire house",
@@ -99,8 +112,9 @@ const searchResults = [
     rating: 4.9,
     reviews: 178,
     images: [
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop",
+      "gallery/munnar_1.jpg",
+      "gallery/munnar_2.jpg",
+      "gallery/munnar_3.jpg",
     ],
     host: "John",
     type: "Entire cottage",
@@ -111,293 +125,129 @@ const searchResults = [
   },
 ]
 
-let filteredResults = [...searchResults]
-let currentViewMode = "grid"
-let filtersVisible = false
-const currentImageIndexes = {}
+let currentProperties = [...allProperties]
+let viewMode = 'grid'
 
-// Initialize the page
-document.addEventListener("DOMContentLoaded", () => {
-  loadSearchParams()
-  setupFilters()
-  loadResults()
-  updateResultsInfo()
+function performSearch() {
+  const location = document.getElementById('searchLocation').value.trim().toLowerCase()
+  const guests = parseInt(document.getElementById('guests').value) || 1
+  // Filter by location and guests
+  currentProperties = allProperties.filter(p =>
+    (!location || p.location.toLowerCase().includes(location)) &&
+    (!guests || p.guests >= guests)
+  )
+  renderResults()
+}
+
+function setViewMode(mode) {
+  viewMode = mode
+  document.getElementById('gridView').classList.toggle('active', mode === 'grid')
+  document.getElementById('listView').classList.toggle('active', mode === 'list')
+  renderResults()
+}
+
+function sortResults() {
+  const sort = document.getElementById('sortSelect').value
+  if (sort === 'price-low') currentProperties.sort((a, b) => a.price - b.price)
+  else if (sort === 'price-high') currentProperties.sort((a, b) => b.price - a.price)
+  else if (sort === 'rating') currentProperties.sort((a, b) => b.rating - a.rating)
+  else currentProperties.sort((a, b) => b.rating - a.rating) // Default: recommended
+  renderResults()
+}
+
+function applyFilters() {
+  // Example: filter by property type and amenities
+  const type = document.getElementById('propertyTypeFilter').value
+  const amenities = Array.from(document.querySelectorAll('.amenity-filter input:checked')).map(cb => cb.value)
+  const minPrice = parseInt(document.getElementById('minPrice').value) || 0
+  const maxPrice = parseInt(document.getElementById('maxPrice').value) || 1000
+  currentProperties = allProperties.filter(p => {
+    let match = true
+    if (type !== 'all' && (!p.type || !p.type.toLowerCase().includes(type))) match = false
+    if (p.price < minPrice || p.price > maxPrice) match = false
+    if (amenities.length) {
+      const propAmenities = (p.amenities || []).map(a => a.name.toLowerCase())
+      if (!amenities.every(a => propAmenities.includes(a))) match = false
+    }
+    return match
+  })
+  renderResults()
+}
+
+function toggleFilters() {
+  document.getElementById('filtersSidebar').classList.toggle('open')
+}
+
+function renderResults() {
+  const grid = document.getElementById('resultsGrid')
+  const title = document.getElementById('resultsTitle')
+  const subtitle = document.getElementById('resultsSubtitle')
+  grid.innerHTML = ''
+  if (currentProperties.length === 0) {
+    title.textContent = 'No results found'
+    subtitle.textContent = 'Try adjusting your filters or search criteria.'
+    grid.innerHTML = `<div style="text-align:center;padding:2.5em 0;color:#888;font-size:1.2em;">No properties match your search.<br><span style='font-size:2.5em;'>😕</span></div>`
+    return
+  }
+  title.textContent = `${currentProperties.length} properties found`
+  subtitle.textContent = 'Choose your perfect stay from our curated selection.'
+  currentProperties.forEach((p, i) => {
+    const card = document.createElement('div')
+    card.className = 'search-property-card' + (viewMode === 'list' ? ' list-view' : '')
+    card.tabIndex = 0
+    card.setAttribute('role', 'button')
+    card.setAttribute('aria-label', p.title + ', ' + p.location)
+    card.onclick = () => goToProperty(p.id)
+    card.onkeydown = e => { if (e.key === 'Enter') goToProperty(p.id) }
+    card.innerHTML = `
+            <div class="property-image-container">
+        <img src="${(p.images && p.images[0]) || '/placeholder.svg'}" alt="${p.title}" class="property-image">
+            </div>
+            <div class="property-info">
+        <div class="property-title">${p.title}</div>
+        <div class="property-location"><i class="fas fa-map-marker-alt"></i> ${p.location}</div>
+        <div class="property-specs">${p.guests} guests · ${p.bedrooms} bedrooms · ${p.bathrooms} baths</div>
+        <div class="property-price">₹${p.price} <span style="color:#888;font-weight:400;">/ night</span></div>
+        <div class="property-rating"><i class="fas fa-star"></i> ${p.rating} <span style="color:#888;font-weight:400;">(${p.reviews} reviews)</span></div>
+            </div>
+        `
+    card.style.animation = `fadeInCard 0.5s ${i * 0.04}s both`
+    grid.appendChild(card)
+  })
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Load all properties (replace with your data source)
+  // allProperties = ...
+  performSearch()
+  document.getElementById('gridView').onclick = () => setViewMode('grid')
+  document.getElementById('listView').onclick = () => setViewMode('list')
+  document.getElementById('sortSelect').onchange = sortResults
+  document.getElementById('propertyTypeFilter').onchange = applyFilters
+  document.querySelectorAll('.amenity-filter input').forEach(cb => cb.onchange = applyFilters)
+  document.getElementById('minPrice').oninput = applyFilters
+  document.getElementById('maxPrice').oninput = applyFilters
+  if (!document.querySelector('.floating-back-btn')) {
+    const btn = document.createElement('button');
+    btn.className = 'floating-back-btn';
+    btn.title = 'Back to Home';
+    btn.onclick = function() { window.location.href = 'index.html'; };
+    btn.innerHTML = '<i class="fas fa-arrow-left"></i>';
+    document.body.appendChild(btn);
+  } else {
+    document.body.appendChild(document.querySelector('.floating-back-btn'));
+  }
 })
 
-// Load search parameters from URL
-function loadSearchParams() {
-  const urlParams = new URLSearchParams(window.location.search)
-
-  const location = urlParams.get("location")
-  const checkIn = urlParams.get("checkin")
-  const checkOut = urlParams.get("checkout")
-  const guests = urlParams.get("guests")
-
-  if (location) document.getElementById("searchLocation").value = location
-  if (checkIn) document.getElementById("checkIn").value = checkIn
-  if (checkOut) document.getElementById("checkOut").value = checkOut
-  if (guests) document.getElementById("guests").value = guests
+function goToProperty(id) {
+  window.location.href = `property.html?id=${id}`
 }
 
-// Setup filter controls
-function setupFilters() {
-  const minPriceSlider = document.getElementById("minPrice")
-  const maxPriceSlider = document.getElementById("maxPrice")
-
-  minPriceSlider.addEventListener("input", updatePriceLabels)
-  maxPriceSlider.addEventListener("input", updatePriceLabels)
-  minPriceSlider.addEventListener("change", applyFilters)
-  maxPriceSlider.addEventListener("change", applyFilters)
-
-  updatePriceLabels()
-}
-
-// Update price labels
-function updatePriceLabels() {
-  const minPrice = document.getElementById("minPrice").value
-  const maxPrice = document.getElementById("maxPrice").value
-
-  document.getElementById("minPriceLabel").textContent = `$${minPrice}`
-  document.getElementById("maxPriceLabel").textContent = maxPrice == 1000 ? "$1000+" : `$${maxPrice}`
-}
-
-// Apply filters
-function applyFilters() {
-  const minPrice = Number.parseInt(document.getElementById("minPrice").value)
-  const maxPrice = Number.parseInt(document.getElementById("maxPrice").value)
-  const propertyType = document.getElementById("propertyTypeFilter").value
-
-  // Get selected amenities
-  const selectedAmenities = Array.from(document.querySelectorAll(".amenities-filters input:checked")).map(
-    (input) => input.value,
-  )
-
-  filteredResults = searchResults.filter((property) => {
-    const matchesPrice = property.price >= minPrice && property.price <= maxPrice
-    const matchesType = propertyType === "all" || property.type.toLowerCase().includes(propertyType)
-    const matchesAmenities =
-      selectedAmenities.length === 0 ||
-      selectedAmenities.every((amenity) =>
-        property.amenities.some((propAmenity) => propAmenity.toLowerCase().includes(amenity.toLowerCase())),
-      )
-
-    return matchesPrice && matchesType && matchesAmenities
-  })
-
-  loadResults()
-  updateResultsInfo()
-}
-
-// Sort results
-function sortResults() {
-  const sortBy = document.getElementById("sortSelect").value
-
-  switch (sortBy) {
-    case "price-low":
-      filteredResults.sort((a, b) => a.price - b.price)
-      break
-    case "price-high":
-      filteredResults.sort((a, b) => b.price - a.price)
-      break
-    case "rating":
-      filteredResults.sort((a, b) => b.rating - a.rating)
-      break
-    default:
-      // Keep original order for recommended
-      break
-  }
-
-  loadResults()
-}
-
-// Set view mode
-function setViewMode(mode) {
-  currentViewMode = mode
-
-  // Update button states
-  document.getElementById("gridView").classList.toggle("active", mode === "grid")
-  document.getElementById("listView").classList.toggle("active", mode === "list")
-
-  // Update grid class
-  const resultsGrid = document.getElementById("resultsGrid")
-  resultsGrid.classList.toggle("list-view", mode === "list")
-
-  loadResults()
-}
-
-// Toggle filters visibility
-function toggleFilters() {
-  filtersVisible = !filtersVisible
-  const sidebar = document.getElementById("filtersSidebar")
-  sidebar.classList.toggle("active", filtersVisible)
-}
-
-// Load and display results
-function loadResults() {
-  const grid = document.getElementById("resultsGrid")
-  grid.innerHTML = ""
-
-  filteredResults.forEach((property) => {
-    const propertyCard = createSearchPropertyCard(property)
-    grid.appendChild(propertyCard)
-  })
-}
-
-// Create search property card
-function createSearchPropertyCard(property) {
-  const card = document.createElement("div")
-  card.className = `search-property-card ${currentViewMode === "list" ? "list-view" : ""}`
-  card.onclick = () => goToProperty(property.id)
-
-  currentImageIndexes[property.id] = 0
-
-  if (currentViewMode === "list") {
-    card.innerHTML = `
-            <div class="property-image-container">
-                <img src="${property.images[0]}" alt="${property.title}" class="property-image" id="search-image-${property.id}">
-                <button class="like-button" onclick="event.stopPropagation(); toggleSearchLike(${property.id})">
-                    <i class="fas fa-heart like-icon" id="search-like-${property.id}"></i>
-                </button>
-            </div>
-            <div class="property-info">
-                <div class="property-header">
-                    <div>
-                        <h3 class="property-title">${property.title}</h3>
-                        <p class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            ${property.location}
-                        </p>
-                    </div>
-                    <div class="rating-info">
-                        <i class="fas fa-star star-filled"></i>
-                        <span>${property.rating}</span>
-                        <span>(${property.reviews})</span>
-                    </div>
-                </div>
-                <p class="property-specs">
-                    ${property.type} · ${property.guests} guests · ${property.bedrooms} bedrooms · ${property.bathrooms} bathrooms
-                </p>
-                <p class="property-host">Hosted by ${property.host}</p>
-                <div class="property-amenities">
-                    ${property.amenities
-                      .slice(0, 4)
-                      .map((amenity) => `<span class="amenity-badge">${amenity}</span>`)
-                      .join("")}
-                </div>
-                <div class="property-price">
-                    <span class="price-amount">$${property.price}</span>
-                    <span class="price-period"> night</span>
-                </div>
-            </div>
-        `
-  } else {
-    card.innerHTML = `
-            <div class="property-image-container">
-                <img src="${property.images[0]}" alt="${property.title}" class="property-image" id="search-image-${property.id}">
-                <button class="like-button" onclick="event.stopPropagation(); toggleSearchLike(${property.id})">
-                    <i class="fas fa-heart like-icon" id="search-like-${property.id}"></i>
-                </button>
-                ${
-                  property.images.length > 1
-                    ? `
-                    <button class="image-nav-button prev-button" onclick="event.stopPropagation(); changeSearchImage(${property.id}, -1)">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="image-nav-button next-button" onclick="event.stopPropagation(); changeSearchImage(${property.id}, 1)">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                `
-                    : ""
-                }
-            </div>
-            <div class="property-info">
-                <div class="property-header">
-                    <h3 class="property-title">${property.title}</h3>
-                    <div class="rating-info">
-                        <i class="fas fa-star star-filled"></i>
-                        <span>${property.rating}</span>
-                    </div>
-                </div>
-                <p class="property-location">${property.location}</p>
-                <p class="property-host">Hosted by ${property.host}</p>
-                <p class="property-price">
-                    <span class="price-amount">$${property.price}</span>
-                    <span class="price-period"> night</span>
-                </p>
-            </div>
-        `
-  }
-
-  return card
-}
-
-// Change search property image
-function changeSearchImage(propertyId, direction) {
-  const property = searchResults.find((p) => p.id === propertyId)
-  if (!property) return
-
-  const currentIndex = currentImageIndexes[propertyId]
-  const newIndex = (currentIndex + direction + property.images.length) % property.images.length
-
-  currentImageIndexes[propertyId] = newIndex
-
-  const imageElement = document.getElementById(`search-image-${propertyId}`)
-  if (imageElement) {
-    imageElement.src = property.images[newIndex]
-  }
-}
-
-// Toggle like for search results
-function toggleSearchLike(propertyId) {
-  const likeIcon = document.getElementById(`search-like-${propertyId}`)
-  if (likeIcon) {
-    likeIcon.classList.toggle("liked")
-  }
-}
-
-// Update results info
-function updateResultsInfo() {
-  const urlParams = new URLSearchParams(window.location.search)
-  const location = urlParams.get("location")
-  const checkIn = urlParams.get("checkin")
-  const checkOut = urlParams.get("checkout")
-  const guests = urlParams.get("guests")
-
-  const title = `${filteredResults.length} stays${location ? ` in ${location}` : ""}`
-  const subtitle = []
-
-  if (checkIn && checkOut) {
-    subtitle.push(`${checkIn} - ${checkOut}`)
-  }
-  if (guests) {
-    subtitle.push(`${guests} guests`)
-  }
-
-  document.getElementById("resultsTitle").textContent = title
-  document.getElementById("resultsSubtitle").textContent = subtitle.join(" · ")
-}
-
-// Perform search
-function performSearch() {
-  const location = document.getElementById("searchLocation").value
-  const checkIn = document.getElementById("checkIn").value
-  const checkOut = document.getElementById("checkOut").value
-  const guests = document.getElementById("guests").value
-
-  // Update URL with new search parameters
-  const params = new URLSearchParams()
-  if (location) params.append("location", location)
-  if (checkIn) params.append("checkin", checkIn)
-  if (checkOut) params.append("checkout", checkOut)
-  if (guests) params.append("guests", guests)
-
-  window.history.pushState({}, "", `search.html?${params.toString()}`)
-
-  // Update results info
-  updateResultsInfo()
-}
-
-// Navigate to property page
-function goToProperty(propertyId) {
-  window.location.href = `property.html?id=${propertyId}`
-}
+// Animation for cards
+const style = document.createElement('style')
+style.innerHTML = `
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(30px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}`
+document.head.appendChild(style)

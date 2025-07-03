@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -49,7 +51,8 @@
                     <div class="search-grid">
                         <div class="search-field">
                             <i class="fas fa-map-marker-alt search-icon"></i>
-                            <input type="text" id="searchLocation" placeholder="Where are you going?" class="search-input">
+                            <input type="text" id="searchLocation" placeholder="Where are you going?"
+                                class="search-input">
                         </div>
                         <div class="search-field">
                             <i class="fas fa-calendar search-icon"></i>
@@ -74,41 +77,61 @@
         </div>
     </section>
 
-    <!-- Categories -->
-    <section class="categories">
+    <!-- Cities -->
+    <section class="cities-section">
         <div class="container">
-            <div class="categories-scroll">
-                <button class="category-item" onclick="filterByCategory('beachfront')">
-                    <span class="category-icon">🏖️</span>
-                    <span class="category-name">Beachfront</span>
+            <div class="cities-scroll" id="citiesScroll">
+                <button class="city-item" aria-label="Kolkata" onclick="filterByCity('Kolkata', this)">
+                    <span class="city-icon">🌆</span>
+                    <span class="city-name">Kolkata</span>
                 </button>
-                <button class="category-item" onclick="filterByCategory('cabins')">
-                    <span class="category-icon">🏕️</span>
-                    <span class="category-name">Cabins</span>
+                <button class="city-item" aria-label="Bengaluru" onclick="filterByCity('Bengaluru', this)">
+                    <span class="city-icon">🏙️</span>
+                    <span class="city-name">Bengaluru</span>
                 </button>
-                <button class="category-item" onclick="filterByCategory('trending')">
-                    <span class="category-icon">🔥</span>
-                    <span class="category-name">Trending</span>
+                <button class="city-item" aria-label="Mumbai" onclick="filterByCity('Mumbai', this)">
+                    <span class="city-icon">🌃</span>
+                    <span class="city-name">Mumbai</span>
                 </button>
-                <button class="category-item" onclick="filterByCategory('city')">
-                    <span class="category-icon">🏙️</span>
-                    <span class="category-name">City</span>
+                <button class="city-item" aria-label="Delhi" onclick="filterByCity('Delhi', this)">
+                    <span class="city-icon">🏛️</span>
+                    <span class="city-name">Delhi</span>
                 </button>
-                <button class="category-item" onclick="filterByCategory('countryside')">
-                    <span class="category-icon">🌾</span>
-                    <span class="category-name">Countryside</span>
+                <button class="city-item" aria-label="Goa" onclick="filterByCity('Goa', this)">
+                    <span class="city-icon">🏖️</span>
+                    <span class="city-name">Goa</span>
                 </button>
-                <button class="category-item" onclick="filterByCategory('luxury')">
-                    <span class="category-icon">💎</span>
-                    <span class="category-name">Luxury</span>
+                <button class="city-item" aria-label="Jaipur" onclick="filterByCity('Jaipur', this)">
+                    <span class="city-icon">🏰</span>
+                    <span class="city-name">Jaipur</span>
                 </button>
-                <button class="category-item" onclick="filterByCategory('unique')">
-                    <span class="category-icon">🏰</span>
-                    <span class="category-name">Unique stays</span>
+                <button class="city-item" aria-label="Manali" onclick="filterByCity('Manali', this)">
+                    <span class="city-icon">🏔️</span>
+                    <span class="city-name">Manali</span>
                 </button>
-                <button class="category-item" onclick="filterByCategory('pet-friendly')">
-                    <span class="category-icon">🐕</span>
-                    <span class="category-name">Pet-friendly</span>
+                <button class="city-item" aria-label="Udaipur" onclick="filterByCity('Udaipur', this)">
+                    <span class="city-icon">🏞️</span>
+                    <span class="city-name">Udaipur</span>
+                </button>
+                <button class="city-item" aria-label="Puducherry" onclick="filterByCity('Puducherry', this)">
+                    <span class="city-icon">🏝️</span>
+                    <span class="city-name">Puducherry</span>
+                </button>
+                <button class="city-item" aria-label="Munnar" onclick="filterByCity('Munnar', this)">
+                    <span class="city-icon">🌄</span>
+                    <span class="city-name">Munnar</span>
+                </button>
+                <button class="city-item" aria-label="Jaisalmer" onclick="filterByCity('Jaisalmer', this)">
+                    <span class="city-icon">🏜️</span>
+                    <span class="city-name">Jaisalmer</span>
+                </button>
+                <button class="city-item" aria-label="Nainital" onclick="filterByCity('Nainital', this)">
+                    <span class="city-icon">🏞️</span>
+                    <span class="city-name">Nainital</span>
+                </button>
+                <button class="city-item" aria-label="Wayanad" onclick="filterByCity('Wayanad', this)">
+                    <span class="city-icon">🌳</span>
+                    <span class="city-name">Wayanad</span>
                 </button>
             </div>
         </div>
@@ -118,11 +141,15 @@
     <section class="properties">
         <div class="container">
             <div class="section-header">
-                <!-- <h2 class="section-title" style="text-align:left;display:flex;align-items:center;gap:8px;">Popular homes in South Goa <span style="font-size:1.2em;color:#717171;">&gt;</span></h2> -->
                 <p class="section-subtitle">Discover our most popular destinations</p>
             </div>
             <div class="properties-grid" id="propertiesGrid">
                 <!-- Properties will be loaded by JavaScript -->
+            </div>
+            <div style="display:flex;justify-content:center;margin-top:24px;">
+                <button id="viewMorePropertiesBtn" class="view-more-properties-btn" onclick="toggleMoreProperties()">
+                    <span style="font-size:1.1em;font-weight:600;">View More</span>
+                </button>
             </div>
         </div>
     </section>
@@ -185,41 +212,86 @@
         </div>
         <div class="chatbot-messages" id="chatbotMessages"></div>
         <form id="chatbotForm" class="chatbot-form">
-            <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Ask a question about Airbnb..." autocomplete="off" required />
+            <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Ask a question about Airbnb..."
+                autocomplete="off" required />
             <button type="submit" class="chatbot-send"><i class="fas fa-paper-plane"></i></button>
         </form>
     </div>
     <script src="script.js"></script>
     <script>
-    // Show profile avatar in navbar if logged in, otherwise show login/signup
-    (function() {
-      const user = JSON.parse(localStorage.getItem('tripnestUser'));
-      const nav = document.getElementById('profileNav');
-      const authButtons = document.querySelector('.auth-buttons');
-      if (user && nav) {
-        nav.innerHTML = `<div style='position:relative;display:inline-block;'>
+        // Show profile avatar in navbar if logged in, otherwise show login/signup
+        (function () {
+            const user = JSON.parse(localStorage.getItem('tripnestUser'));
+            const nav = document.getElementById('profileNav');
+            const authButtons = document.querySelector('.auth-buttons');
+            if (user && nav) {
+                nav.innerHTML = `<div style='position:relative;display:inline-block;'>
           <a href="profile.html" title="Profile"><img src="${user.avatar || 'https://randomuser.me/api/portraits/men/32.jpg'}" alt="Profile" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #ff385c;box-shadow:0 2px 8px rgba(255,56,92,0.10);"></a>
           <button id='logoutBtn' title='Logout' style='position:absolute;bottom:-8px;right:-8px;background:#fff;border:1.5px solid #ff385c;color:#ff385c;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;'><i class='fas fa-sign-out-alt'></i></button>
         </div>`;
-        if (authButtons) authButtons.style.display = 'none';
-        setTimeout(() => {
-          const logoutBtn = document.getElementById('logoutBtn');
-          if (logoutBtn) {
-            logoutBtn.onclick = function(e) {
-              e.preventDefault();
-              localStorage.removeItem('tripnestUser');
-              location.reload();
-            };
-          }
-        }, 0);
-      } else {
-        if (authButtons) authButtons.style.display = '';
-        if (nav) nav.innerHTML = '';
-        // Defensive: remove any stale tripnestUser
-        localStorage.removeItem('tripnestUser');
-      }
-    })();
+                if (authButtons) authButtons.style.display = 'none';
+                setTimeout(() => {
+                    const logoutBtn = document.getElementById('logoutBtn');
+                    if (logoutBtn) {
+                        logoutBtn.onclick = function (e) {
+                            e.preventDefault();
+                            localStorage.removeItem('tripnestUser');
+                            location.reload();
+                        };
+                    }
+                }, 0);
+            } else {
+                if (authButtons) authButtons.style.display = '';
+                if (nav) nav.innerHTML = '';
+                // Defensive: remove any stale tripnestUser
+                localStorage.removeItem('tripnestUser');
+            }
+        })();
+    </script>
+    <script>
+        // Animate city items on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.city-item');
+            items.forEach((item, i) => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(24px) scale(0.98)';
+                setTimeout(() => {
+                    item.style.transition = 'all 0.5s cubic-bezier(.4,0,.2,1)';
+                    item.style.opacity = 1;
+                    item.style.transform = 'none';
+                }, 120 + i * 70);
+            });
+        });
+        function filterByCity(city, btn) {
+            document.querySelectorAll('.city-item').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            // Ripple
+            const ripple = document.createElement('span');
+            ripple.className = 'category-ripple';
+            btn.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 500);
+            // Filter properties by city
+            if (city === 'all') {
+                currentProperties = [...featuredProperties];
+            } else {
+                currentProperties = featuredProperties.filter(p => p.location.toLowerCase().includes(city.toLowerCase()));
+            }
+            loadProperties();
+        }
+    </script>
+    <script>
+        function toggleMoreProperties() {
+            window.showingMoreProperties = !window.showingMoreProperties;
+            loadProperties();
+            const btn = document.getElementById('viewMorePropertiesBtn');
+            if (window.showingMoreProperties) {
+                btn.innerHTML = '<span style="font-size:1.1em;font-weight:600;">View Less</span>';
+            } else {
+                btn.innerHTML = '<span style="font-size:1.1em;font-weight:600;">View More</span>';
+            }
+        }
     </script>
     <script src="chatbot.js"></script>
 </body>
+
 </html>

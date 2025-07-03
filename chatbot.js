@@ -33,6 +33,26 @@ const FAQ = [
   { q: /support|help|contact/i, a: "For further help, email us at support@tripnest.com or use this chatbot for quick answers." },
   { q: /book|booking|reserve/i, a: "To book a property, select your dates and guests, then click 'Book Now' on the property page." },
   { q: /profile|account/i, a: "Access your profile by clicking your avatar in the navbar. Edit your info, view bookings, and more!" },
+  { q: /edit.*profile|change.*profile|update.*profile/i, a: "You can edit your name, email, phone, location, gender, date of birth, and bio from your profile page. Click the pen icon next to each field to edit." },
+  { q: /change.*photo|profile.*picture|avatar/i, a: "To change your profile picture, click the camera icon on your profile page and upload a new photo." },
+  { q: /prime.*benefit|prime.*plan|prime.*feature/i, a: "Prime members get extra discounts, early access to new properties, priority support, free cancellation on select stays, and special deals. Plans: Monthly (₹199), Yearly (₹1,499), Family (₹2,499/year, up to 4 members), Student (₹99/month)." },
+  { q: /cancel.*prime|prime.*cancel/i, a: "You can cancel your Prime membership anytime from your account settings. No hidden fees." },
+  { q: /early access/i, a: "Prime members receive email notifications and app alerts for early access to new property listings." },
+  { q: /family.*plan/i, a: "Yes, the Family plan covers up to 4 members. Each gets their own account benefits." },
+  { q: /payment.*method/i, a: "We accept all major credit/debit cards, UPI, and net banking for Prime membership and bookings." },
+  { q: /host.*stat|dashboard|host.*feature/i, a: "As a host, you can view your total revenue, bookings, properties, and average rating. Use the Host Dashboard to manage properties, bookings, and earnings." },
+  { q: /add.*property|list.*property/i, a: "Go to the Host Dashboard and click 'Add New Property' in the Quick Actions section to list a new property." },
+  { q: /favourite.*property|save.*property/i, a: "Click the heart icon on any property to save it to your Favourites. View all your favourites from the Favourites page." },
+  { q: /search.*property|find.*property|filter|sort/i, a: "Use the search bar to enter your destination, dates, and guests. Filter by price, property type, and amenities like WiFi, pool, or kitchen. Sort results by price or rating." },
+  { q: /currency|rupee|indian rupee|₹/i, a: "All prices and revenue on TripNest are shown in Indian Rupees (₹)." },
+  { q: /back.*button|navigation/i, a: "Every main page has a modern floating back button for easy navigation." },
+  { q: /accessibility|keyboard|screen reader/i, a: "TripNest is designed to be accessible, with keyboard navigation and screen reader support." },
+  { q: /testimonial|review|prime.*feedback/i, a: "Our members love Prime! For example: 'TripNest Prime saved me thousands on my family trip. The support is top-notch!' - Anjali, Mumbai" },
+  { q: /amenit(y|ies)|pool|wifi|kitchen|parking|hot tub|gym/i, a: "You can filter properties by amenities such as WiFi, kitchen, parking, pool, hot tub, and gym in the search filters sidebar." },
+  { q: /sort.*price|sort.*rating/i, a: "Sort search results by price (low to high or high to low) or by highest rated using the sort dropdown on the search page." },
+  { q: /how to log out|logout/i, a: "To log out, click your profile avatar in the navbar and use the logout button in the dropdown." },
+  { q: /how to become a member|join prime/i, a: "Go to the Prime Membership page and choose a plan to join. You can select Monthly, Yearly, Family, or Student plans." },
+  { q: /how to contact support|customer support/i, a: "For help, email support@tripnest.com or use this chatbot for quick answers." },
 ];
 
 // --- Property Data for Chatbot ---
@@ -145,6 +165,87 @@ const chatbotProperties = [
     season: "Winter (Nov-Feb)",
     attractions: ["Lake Pichola", "City Palace", "Jag Mandir", "Fateh Sagar Lake"]
   },
+  {
+    id: 105,
+    title: "Shimla Hilltop Cottage",
+    location: "Shimla, Himachal Pradesh",
+    price: 270,
+    description: "Charming cottage with panoramic views of the Shimla hills.",
+    season: "Summer (Mar-Jun), Winter (Dec-Feb)",
+    attractions: ["Mall Road", "Jakhoo Temple", "The Ridge", "Kufri"]
+  },
+  {
+    id: 106,
+    title: "Mall Road View Apartment",
+    location: "Shimla, Himachal Pradesh",
+    price: 210,
+    description: "Modern apartment steps from Shimla's famous Mall Road.",
+    season: "Summer (Mar-Jun), Winter (Dec-Feb)",
+    attractions: ["Mall Road", "Christ Church", "Scandal Point", "Green Valley"]
+  },
+  {
+    id: 107,
+    title: "Pine View Villa",
+    location: "Shimla, Himachal Pradesh",
+    price: 320,
+    description: "Spacious villa surrounded by pine forests, perfect for families.",
+    season: "Summer (Mar-Jun), Winter (Dec-Feb)",
+    attractions: ["Mashobra", "Annandale", "Tara Devi Temple", "Chadwick Falls"]
+  },
+  {
+    id: 108,
+    title: "Taj Mahal View Suite",
+    location: "Agra, Uttar Pradesh",
+    price: 350,
+    description: "Luxury suite with a direct view of the Taj Mahal.",
+    season: "Winter (Nov-Feb)",
+    attractions: ["Taj Mahal", "Agra Fort", "Mehtab Bagh", "Fatehpur Sikri"]
+  },
+  {
+    id: 109,
+    title: "Agra Heritage Homestay",
+    location: "Agra, Uttar Pradesh",
+    price: 180,
+    description: "Experience Agra's culture in this cozy heritage homestay.",
+    season: "Winter (Nov-Feb)",
+    attractions: ["Taj Mahal", "Itmad-ud-Daula", "Kinari Bazaar", "Akbar's Tomb"]
+  },
+  {
+    id: 110,
+    title: "Yamuna Riverside Villa",
+    location: "Agra, Uttar Pradesh",
+    price: 290,
+    description: "Elegant villa on the banks of Yamuna, close to the Taj Mahal.",
+    season: "Winter (Nov-Feb)",
+    attractions: ["Yamuna River", "Taj Mahal", "Agra Fort", "Jama Masjid"]
+  },
+  {
+    id: 201,
+    title: "Victoria Memorial View Apartment",
+    location: "Kolkata, West Bengal",
+    price: 260,
+    description: "Modern apartment with stunning views of Victoria Memorial, central Kolkata.",
+    season: "Winter (Nov-Feb), Spring (Feb-Mar)",
+    attractions: ["Victoria Memorial", "Eden Gardens", "Indian Museum", "St. Paul's Cathedral"]
+  },
+  {
+    id: 202,
+    title: "Howrah Bridge Riverside Suite",
+    location: "Kolkata, West Bengal",
+    price: 320,
+    description: "Elegant suite on the banks of the Hooghly, near Howrah Bridge.",
+    season: "Winter (Nov-Feb), Spring (Feb-Mar)",
+    attractions: ["Howrah Bridge", "Prinsep Ghat", "Belur Math", "Flower Market"]
+  },
+  {
+    id: 203,
+    title: "Park Street Heritage Home",
+    location: "Kolkata, West Bengal",
+    price: 210,
+    description: "Charming heritage home in the heart of Park Street, Kolkata's cultural hub.",
+    season: "Winter (Nov-Feb), Spring (Feb-Mar)",
+    attractions: ["Park Street", "New Market", "Birla Planetarium", "Mother House"]
+  },
 ];
 
 function findPropertyById(id) {
@@ -173,8 +274,10 @@ function getPropertyResponse(input) {
   }
   // If user asks about property, price, or places to visit but doesn't specify which
   if (/property|price|cost|charge|fee|places to visit|attractions|season|best time/i.test(input) && !findPropertyByNameOrLocation(input) && !/property\s*#?\d+/i.test(input)) {
+    // Show a few sample properties with prices
+    const samples = chatbotProperties.slice(0, 5).map(p => `• ${p.title} (${p.location}) — ₹${p.price}/night`).join('\n');
     chatbotContext = { type: 'property_query' };
-    return 'Please provide the property name, location, or ID you want to know about.';
+    return `Here are some sample properties and their prices:\n${samples}\n\nPlease provide the property name, location, or ID you want to know about for more details.`;
   }
   // If user provides property info directly
   const idMatch = input.match(/property\s*#?(\d+)/i);

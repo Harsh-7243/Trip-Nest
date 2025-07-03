@@ -4,15 +4,16 @@ body.prime-body {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .prime-container {
-    max-width: 700px;
-    margin: 3.5rem auto 0 auto;
+    max-width: none;
+    width: 100vw;
+    margin: 0;
     background: #fff;
-    border-radius: 22px;
-    box-shadow: 0 8px 32px rgba(60, 60, 60, 0.13), 0 2px 8px rgba(230,57,99,0.08);
-    padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 2.5rem 3vw 2.2rem 3vw;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     position: relative;
 }
 .prime-header,
@@ -22,6 +23,8 @@ body.prime-body {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    max-width: none;
+    width: 100%;
 }
 .prime-header {
     margin-bottom: 2.2rem;
@@ -94,11 +97,13 @@ body.prime-body {
 }
 .prime-plans {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
+    max-width: none;
+    width: 100vw;
 }
 .prime-plan-card {
     background: #f8fafc;
@@ -238,12 +243,13 @@ body.prime-body {
     pointer-events: auto;
 }
 .prime-modal-content {
-    background: #fff;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(60,60,60,0.18);
     border-radius: 18px;
     max-width: 370px;
     width: 95vw;
     padding: 2.2rem 1.5rem 1.5rem 1.5rem;
-    box-shadow: 0 8px 32px rgba(60,60,60,0.18);
     position: relative;
     outline: none;
     animation: fadeInModal 0.3s;
@@ -320,45 +326,253 @@ body.prime-body {
 }
 @media (max-width: 700px) {
     .prime-container {
-        padding: 0.7rem 0.2rem 0.7rem 0.2rem;
-        min-width: 0;
+        padding: 1.2rem 0.5rem;
     }
     .prime-plans {
-        flex-direction: column;
-        gap: 1.2rem;
-        align-items: center;
+        gap: 0.7rem;
     }
     .prime-plan-card {
-        min-width: 0;
-        width: 100%;
-        max-width: 340px;
+        min-width: 140px;
+        max-width: 98vw;
+        padding: 1.2rem 0.7rem;
     }
     .prime-modal-content {
         padding: 1.2rem 0.5rem 1.2rem 0.5rem;
         max-width: 98vw;
     }
 }
-.back-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+.floating-back-btn {
+    position: absolute;
+    top: 2.2rem;
+    left: 2.2rem;
+    z-index: 20;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
     background: #fff;
-    color: #222;
-    border: 1px solid #ddd;
-    border-radius: 999px;
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    margin: 1.5rem 0 1.5rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    transition: background 0.2s, border 0.2s, color 0.2s;
-}
-.back-button i {
-    font-size: 1.1rem;
-}
-.back-button:hover {
-    background: #f7f7f7;
-    border-color: #ff385c;
     color: #ff385c;
+    border: none;
+    box-shadow: 0 4px 16px rgba(255,56,92,0.13), 0 2px 8px rgba(230,57,99,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.floating-back-btn:hover {
+    background: #ff385c;
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(255,56,92,0.18);
+}
+
+/* Testimonials section */
+.prime-testimonials {
+    margin: 2.5rem 0 2rem 0;
+    text-align: center;
+}
+.testimonials-list {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: none;
+    width: 100vw;
+    margin: 0 auto;
+}
+.testimonial {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.08);
+    padding: 1.2rem 1.5rem;
+    max-width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.18s, transform 0.18s;
+}
+.testimonial:hover {
+    box-shadow: 0 8px 32px rgba(255,56,92,0.13);
+    transform: translateY(-4px) scale(1.04);
+}
+.testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-bottom: 0.7rem;
+    object-fit: cover;
+    border: 2px solid #ffb800;
+}
+.testimonial-content p {
+    font-size: 1.05rem;
+    color: #222;
+    margin-bottom: 0.4rem;
+}
+.testimonial-content span {
+    color: #64748b;
+    font-size: 0.98rem;
+}
+
+/* FAQ section */
+.prime-faq {
+    margin: 2.5rem 0 2rem 0;
+    text-align: center;
+}
+.faq-list {
+    max-width: none;
+    width: 100vw;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 3vw;
+}
+.faq-item {
+    margin-bottom: 1.1rem;
+    border-radius: 10px;
+    background: #f8fafc;
+    box-shadow: 0 2px 8px rgba(102,126,234,0.06);
+    padding: 0.7rem 1.2rem;
+}
+.faq-question {
+    background: none;
+    border: none;
+    color: #ff385c;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 0.3rem;
+    transition: color 0.18s;
+}
+.faq-question:hover {
+    color: #e11d48;
+}
+.faq-answer {
+    color: #64748b;
+    font-size: 1rem;
+    display: none;
+    margin-top: 0.2rem;
+    transition: max-height 0.2s, opacity 0.2s;
+}
+.faq-item.open .faq-answer {
+    display: block;
+    opacity: 1;
+}
+
+/* Responsive improvements */
+@media (max-width: 1300px) {
+    .prime-container, .prime-comparison, .comparison-table, .prime-plans, .testimonials-list, .faq-list {
+        max-width: 100vw;
+    }
+}
+@media (max-width: 900px) {
+    .prime-container, .prime-comparison, .comparison-table, .prime-plans, .testimonials-list, .faq-list {
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+}
+@media (max-width: 700px) {
+    .prime-container, .prime-comparison, .comparison-table, .prime-plans, .testimonials-list, .faq-list {
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+}
+
+/* Animated hero section */
+.prime-hero-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Plan comparison table */
+.prime-comparison {
+    width: 100%;
+    margin: 2.5rem 0 2rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+.comparison-table {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 900px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #f8fafc;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(60, 60, 60, 0.13), 0 2px 8px rgba(230,57,99,0.08);
+    overflow: hidden;
+    border: 1.5px solid #e2e8f0;
+    table-layout: fixed;
+}
+.comparison-table th, .comparison-table td {
+    padding: 1.2em 1.3em;
+    font-size: 1.12rem;
+    width: auto;
+    word-break: break-word;
+}
+.comparison-table th {
+    background: linear-gradient(90deg, #fff 60%, #ffe5ec 100%);
+    color: #ff385c;
+    font-weight: 800;
+    border-bottom: 2px solid #e2e8f0;
+    letter-spacing: 0.01em;
+}
+.comparison-table tr:not(:last-child) td {
+    border-bottom: 1.5px solid #e2e8f0;
+}
+.comparison-table td {
+    text-align: center;
+    background: none;
+    font-weight: 500;
+    color: #444;
+}
+.comparison-table tr:nth-child(even) td {
+    background: #f3f6fa;
+}
+.comparison-table tr {
+    height: 3.2em;
+}
+
+/* FAQ search */
+.faq-search {
+    width: 100%;
+    max-width: 400px;
+    margin: 0.7rem auto 1.2rem auto;
+    display: block;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #e2e8f0;
+    font-size: 1.05rem;
+    background: #f8fafc;
+    color: #222;
+    transition: border 0.18s;
+}
+.faq-search:focus {
+    border-color: #ff385c;
+    outline: none;
+}
+
+/* Remove dark mode and toggle styles */
+.dark-mode-toggle { display: none !important; }
+body.prime-body.dark-mode { background: none; color: inherit; }
+body.prime-body.dark-mode * { background: none; color: inherit; box-shadow: none; border-color: inherit; }
+
+@media (max-width: 900px) {
+    .comparison-table th, .comparison-table td {
+        padding: 0.7em 0.5em;
+        font-size: 0.98rem;
+    }
+    .comparison-table {
+        max-width: 99vw;
+    }
 } 

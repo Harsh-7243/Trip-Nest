@@ -965,4 +965,32 @@
     .add-property-form {
         padding: 1.2rem 0.5rem;
     }
-} 
+}
+
+.floating-back-btn {
+    position: absolute;
+    top: 5.5rem !important;
+    left: 2.2rem;
+    z-index: 20;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    color: #ff385c;
+    border: none;
+    box-shadow: 0 4px 16px rgba(255,56,92,0.13), 0 2px 8px rgba(230,57,99,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.floating-back-btn:hover {
+    background: #ff385c;
+    color: #fff;
+    box-shadow: 0 8px 32px rgba(255,56,92,0.18);
+}
+
+/* Remove old back button styles if present */
+.back-btn, .back-button { display: none !important; } 

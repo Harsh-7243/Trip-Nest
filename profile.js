@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let editedUser = { ...user };
     let editingField = null;
     let changesMade = false;
+    let avatarChanged = false;
 
     // Elements
     const fields = ['name','email','phone','location','gender','dob','bio'];
@@ -46,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('profileForm');
     const toast = document.getElementById('profileToast');
     const fieldRows = document.querySelectorAll('.profile-field-row');
+    const avatarInput = document.getElementById('avatarInput');
+    const avatarImg = document.getElementById('profileAvatar');
+    const editAvatarBtn = document.querySelector('.edit-avatar-btn');
 
     // Render view
     function renderView() {
@@ -112,21 +116,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Save changes
     function saveChanges(e) {
         e.preventDefault();
-        if (!editingField) return;
-        const val = editEls[editingField].value;
-        if (val !== user[editingField]) {
-            editedUser[editingField] = val;
-            changesMade = true;
+        // Save if a field is being edited or avatar was changed
+        if (!editingField && !avatarChanged) return;
+        let val;
+        if (editingField) {
+            val = editEls[editingField].value;
+            if (val !== user[editingField]) {
+                editedUser[editingField] = val;
+                changesMade = true;
+            }
+            // If dob is changed, update joined year
+            if (editingField === 'dob') {
+                editedUser.joined = val.split('-')[0] || user.joined;
+            }
         }
-        // If dob is changed, update joined year
-        if (editingField === 'dob') {
-            editedUser.joined = val.split('-')[0] || user.joined;
-        }
-        if (changesMade) {
+        if (changesMade || avatarChanged) {
             user = { ...user, ...editedUser };
             localStorage.setItem('tripnestUser', JSON.stringify(user));
             showToast('Profile updated!');
         }
+        avatarChanged = false;
         renderView();
     }
 
@@ -134,6 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function showToast(msg) {
         toast.textContent = msg;
         toast.classList.add('show');
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
         setTimeout(() => toast.classList.remove('show'), 1800);
     }
 
@@ -167,9 +178,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Save button
     form.onsubmit = saveChanges;
 
-    // Avatar editing stub
-    document.querySelector('.edit-avatar-btn').onclick = () => {
-        alert('Avatar editing coming soon!');
+    // Avatar editing
+    editAvatarBtn.onclick = () => {
+        avatarInput.click();
+    };
+    avatarInput.onchange = function() {
+        const file = this.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                avatarImg.src = e.target.result;
+                editedUser.avatar = e.target.result;
+                saveBar.style.display = 'flex';
+                changesMade = true;
+                avatarChanged = true;
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     renderView();

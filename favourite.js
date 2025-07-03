@@ -8,8 +8,10 @@ const allProperties = [
     rating: 4.9,
     reviews: 127,
     images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop",
+      "gallery/goa_beach_1.jpeg",
+      "gallery/goa_beach_2.jpeg",
+      "gallery/goa_beach_3.jpeg",
+      "gallery/goa_beach_4.jpeg",
     ],
   },
   {
@@ -20,8 +22,8 @@ const allProperties = [
     rating: 4.8,
     reviews: 89,
     images: [
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      "gallery/manali_1.jpg",
+      "gallery/manali_2.jpg",
     ],
   },
   {
@@ -32,8 +34,8 @@ const allProperties = [
     rating: 4.7,
     reviews: 203,
     images: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop",
+      "gallery/mumbai_2.jpg",
+      "gallery/mumbai_4.jpg",
     ],
   },
   {
@@ -44,8 +46,9 @@ const allProperties = [
     rating: 4.9,
     reviews: 156,
     images: [
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=300&fit=crop",
+      "gallery/jaipur_1.jpg",
+      "gallery/jaipur_2.jpg",
+      "gallery/jaipur_3.jpg",
     ],
   },
   {
@@ -56,8 +59,8 @@ const allProperties = [
     rating: 4.8,
     reviews: 94,
     images: [
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop",
+      "gallery/jaisalmer_1.jpg",
+      "gallery/jaisalmer_2.jpg",
     ],
   },
   {
@@ -68,8 +71,10 @@ const allProperties = [
     rating: 4.9,
     reviews: 178,
     images: [
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop",
+      "gallery/nainital_1.jpeg",
+      "gallery/nainital_2.jpg",
+      "gallery/nainital_3.jpg",
+      "gallery/nainital_4.jpeg",
     ],
   },
   {
@@ -80,8 +85,8 @@ const allProperties = [
     rating: 4.8,
     reviews: 112,
     images: [
-      "https://images.unsplash.com/photo-1464983953574-0892a716854b?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400&h=300&fit=crop",
+      "gallery/banglore_1.jpg",
+      "gallery/banglore_2.jpg",
     ],
   },
   {
@@ -92,8 +97,9 @@ const allProperties = [
     rating: 4.7,
     reviews: 98,
     images: [
-      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&h=300&fit=crop",
+      "gallery/munnar_1.jpg",
+      "gallery/munnar_2.jpg",
+      "gallery/munnar_3.jpg",
     ],
   },
   {
@@ -104,8 +110,9 @@ const allProperties = [
     rating: 4.6,
     reviews: 76,
     images: [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?w=400&h=300&fit=crop",
+      "gallery/puducherry_1.jpg",
+      "gallery/puducherry_2.jpg",
+      "gallery/puducherry_3.jpg",
     ],
   },
   {
@@ -116,8 +123,9 @@ const allProperties = [
     rating: 4.8,
     reviews: 134,
     images: [
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&h=300&fit=crop",
+      "gallery/delhi_1.jpg",
+      "gallery/delhi_2.jpg",
+      "gallery/delhi_3.jpg",
     ],
   },
   {
@@ -128,8 +136,9 @@ const allProperties = [
     rating: 4.9,
     reviews: 201,
     images: [
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?w=400&h=300&fit=crop",
+      "gallery/waynad_1.jpg",
+      "gallery/waynad_2.jpeg",
+      "gallery/waynad_3.jpg",
     ],
   },
   {
@@ -140,8 +149,111 @@ const allProperties = [
     rating: 5.0,
     reviews: 88,
     images: [
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=300&fit=crop",
+      "gallery/udaipur_1.jpeg",
+      "gallery/udaipur_2.jpeg",
+      "gallery/udaipur_3.jpeg",
+    ],
+  },
+  {
+    id: 13,
+    title: "Hyderabad Property",
+    location: "Hyderabad, Telangana",
+    price: 300,
+    rating: 4.8,
+    reviews: 150,
+    images: [
+      "gallery/hyderabad_1.jpg",
+      "gallery/hyderabad_2.jpg",
+    ],
+  },
+  {
+    id: 14,
+    title: "Hitech City Property",
+    location: "Hyderabad, Telangana",
+    price: 250,
+    rating: 4.7,
+    reviews: 120,
+    images: [
+      "gallery/hitech_1.jpg",
+      "gallery/hitech_2.jpg",
+    ],
+  },
+  {
+    id: 15,
+    title: "Chennai Property",
+    location: "Chennai, Tamil Nadu",
+    price: 200,
+    rating: 4.8,
+    reviews: 100,
+    images: [
+      "gallery/chennai_1.jpg",
+      "gallery/chennai_2.jpg",
+      "gallery/chennai_3.jpg",
+    ],
+  },
+  {
+    id: 16,
+    title: "Shimla Property",
+    location: "Shimla, Himachal Pradesh",
+    price: 300,
+    rating: 4.9,
+    reviews: 100,
+    images: [
+      "gallery/shimla_1.jpg",
+      "gallery/shimla_2.jpg",
+      "gallery/shimla_3.jpg",
+    ],
+  },
+  {
+    id: 17,
+    title: "Yamuna Property",
+    location: "Yamuna, Uttar Pradesh",
+    price: 200,
+    rating: 4.8,
+    reviews: 100,
+    images: [
+      "gallery/yamuna_1.jpg",
+      "gallery/yamuna_2.jpg",
+      "gallery/yamuna_3.jpg",
+    ],
+  },
+  {
+    id: 18,
+    title: "Taj Mahal Property",
+    location: "Agra, Uttar Pradesh",
+    price: 500,
+    rating: 4.9,
+    reviews: 100,
+    images: [
+      "gallery/tajmahal_1.jpg",
+      "gallery/tajmahal_2.jpg",
+      "gallery/tajmahal_3.jpg",
+    ],
+  },
+  {
+    id: 19,
+    title: "Howrah Property",
+    location: "Howrah, West Bengal",
+    price: 200,
+    rating: 4.8,
+    reviews: 100,
+    images: [
+      "gallery/howrah_1.jpg",
+      "gallery/howrah_2.jpg",
+      "gallery/howrah_3.jpg",
+    ],
+  },
+  {
+    id: 20,
+    title: "Pine View",
+    location: "Somewhere, Somewhere",
+    price: 150,
+    rating: 4.7,
+    reviews: 80,
+    images: [
+      "gallery/pineview.jpg",
+      "gallery/pineview_1.jpg",
+      "gallery/pineview_2.jpg",
     ],
   },
 ];

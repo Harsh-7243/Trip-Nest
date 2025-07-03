@@ -22,6 +22,7 @@
                         <span class="separator">|</span>
                         <a href="signup.html" class="auth-link">Sign up</a>
                     </div>
+                    <div id="profileNav"></div>
                 </div>
             </div>
         </div>
@@ -94,8 +95,8 @@
                             <input type="range" id="minPrice" min="0" max="1000" value="0" class="price-slider">
                             <input type="range" id="maxPrice" min="0" max="1000" value="1000" class="price-slider">
                             <div class="price-labels">
-                                <span id="minPriceLabel">$0</span>
-                                <span id="maxPriceLabel">$1000+</span>
+                                <span id="minPriceLabel">₹0</span>
+                                <span id="maxPriceLabel">₹1000+</span>
                             </div>
                         </div>
                     </div>
@@ -154,5 +155,36 @@
     </div>
 
     <script src="search.js"></script>
+    <script>
+    // Show profile avatar in navbar if logged in, otherwise show login/signup
+    (function() {
+      const user = JSON.parse(localStorage.getItem('tripnestUser'));
+      const nav = document.getElementById('profileNav');
+      const authButtons = document.querySelector('.auth-buttons');
+      if (user && nav) {
+        nav.innerHTML = `<div style='position:relative;display:inline-block;'>
+          <a href="profile.html" title="Profile"><img src="${user.avatar || 'https://randomuser.me/api/portraits/men/32.jpg'}" alt="Profile" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #ff385c;box-shadow:0 2px 8px rgba(255,56,92,0.10);"></a>
+          <button id='logoutBtn' title='Logout' style='position:absolute;bottom:-8px;right:-8px;background:#fff;border:1.5px solid #ff385c;color:#ff385c;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;'><i class='fas fa-sign-out-alt'></i></button>
+        </div>`;
+        if (authButtons) authButtons.style.display = 'none';
+        setTimeout(() => {
+          const logoutBtn = document.getElementById('logoutBtn');
+          if (logoutBtn) {
+            logoutBtn.onclick = function(e) {
+              e.preventDefault();
+              localStorage.removeItem('tripnestUser');
+              location.reload();
+            };
+          }
+        }, 0);
+      } else {
+        if (authButtons) authButtons.style.display = '';
+        if (nav) nav.innerHTML = '';
+        // Defensive: remove any stale tripnestUser
+        localStorage.removeItem('tripnestUser');
+      }
+    })();
+    </script>
+    <button class="floating-back-btn" onclick="window.location.href='index.html'" title="Back to Home"><i class="fas fa-arrow-left"></i></button>
 </body>
 </html>

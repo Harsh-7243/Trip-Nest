@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let modal = null;
     let lastSelectedPlan = null;
 
+    // Plan selection and modal logic
     joinBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const planCard = btn.closest('.prime-plan-card');
@@ -45,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.onclick = e => { if (e.target === modal) closeModal(); };
         // Confirm
         modal.querySelector('.prime-modal-confirm').onclick = () => {
+            localStorage.setItem('primeSelectedPlan', plan);
             closeModal();
             showToast(`You have joined the ${planName} plan! (Demo only)`);
         };
@@ -73,6 +75,23 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => toast.remove(), 350);
         }, 1800);
     }
-});
 
-// Optional: Add .prime-selected style in CSS for visual feedback 
+    // FAQ toggle logic
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const item = this.closest('.faq-item');
+            item.classList.toggle('open');
+        });
+    });
+
+    // FAQ search filter
+    const faqSearch = document.getElementById('faqSearch');
+    if (faqSearch) {
+        faqSearch.addEventListener('input', function() {
+            const val = this.value.toLowerCase();
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.style.display = item.textContent.toLowerCase().includes(val) ? '' : 'none';
+            });
+        });
+    }
+}); 

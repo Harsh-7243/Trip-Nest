@@ -27,8 +27,6 @@
     </header>
 
     <div class="container host-container">
-        <!-- Back Button -->
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
         <!-- Welcome Section -->
         <div class="welcome-section">
             <div class="welcome-flex">
@@ -37,7 +35,7 @@
                     <p class="welcome-subtitle">Manage your properties and track your earnings</p>
                 </div>
                 <div class="welcome-image">
-                    <img src="https://assets-global.website-files.com/5f6b7190797c1e1a2c2b3b3b/63e3b2e2e2e2e2e2e2e2e2e2_host-illustration.svg" alt="Host Illustration">
+                    <img src="gallery/goa_beach_1.jpeg" alt="Host Illustration">
                 </div>
             </div>
         </div>
@@ -46,10 +44,10 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-content">
-                    <i class="fas fa-dollar-sign stat-icon revenue-icon"></i>
+                    <i class="fas fa-rupee-sign stat-icon revenue-icon"></i>
                     <div class="stat-details">
                         <p class="stat-label">Total Revenue</p>
-                        <p class="stat-value" id="totalRevenue">$0</p>
+                        <p class="stat-value" id="totalRevenue">₹0</p>
                     </div>
                 </div>
             </div>
@@ -121,7 +119,7 @@
                                 <span>Manage Calendar</span>
                             </button>
                             <button class="quick-action-button">
-                                <i class="fas fa-dollar-sign"></i>
+                                <i class="fas fa-rupee-sign"></i>
                                 <span>Update Pricing</span>
                             </button>
                             <a class="quick-action-button" href="analytics.html">
@@ -169,7 +167,7 @@
                             <h3 class="card-title">This Month</h3>
                         </div>
                         <div class="card-content">
-                            <p class="earning-amount month-earning">$12,450</p>
+                            <p class="earning-amount month-earning">₹12,450</p>
                             <p class="earning-change">+15% from last month</p>
                         </div>
                     </div>
@@ -178,7 +176,7 @@
                             <h3 class="card-title">This Year</h3>
                         </div>
                         <div class="card-content">
-                            <p class="earning-amount year-earning" id="yearEarning">$0</p>
+                            <p class="earning-amount year-earning" id="yearEarning">₹0</p>
                             <p class="earning-change">Total earnings</p>
                         </div>
                     </div>
@@ -187,7 +185,7 @@
                             <h3 class="card-title">Average per Booking</h3>
                         </div>
                         <div class="card-content">
-                            <p class="earning-amount avg-earning" id="avgEarning">$0</p>
+                            <p class="earning-amount avg-earning" id="avgEarning">₹0</p>
                             <p class="earning-change">Per reservation</p>
                         </div>
                     </div>
@@ -206,6 +204,8 @@
             </div>
         </div>
     </div>
+
+    <button class="floating-back-btn" onclick="window.location.href='index.html'" title="Back to Home"><i class="fas fa-arrow-left"></i></button>
 
     <script src="host.js"></script>
 </body>

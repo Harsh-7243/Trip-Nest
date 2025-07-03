@@ -8,14 +8,14 @@ const propertyData = {
     rating: 4.9,
     reviews: 127,
     images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop",
+      "gallery/goa_beach_1.jpeg",
+      "gallery/goa_beach_2.jpeg",
+      "gallery/goa_beach_3.jpeg",
+      "gallery/goa_beach_4.jpeg",
     ],
     host: {
       name: "Sarah",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face",
+      avatar: "gallery/avatar_1.jpeg",
       joinDate: "2019",
       reviews: 89,
       verified: true,
@@ -44,8 +44,8 @@ const propertyData = {
     rating: 4.8,
     reviews: 89,
     images: [
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+      "gallery/manali_1.jpg",
+      "gallery/manali_2.jpg",
     ],
     host: {
       name: "Mike",
@@ -77,12 +77,12 @@ const propertyData = {
     rating: 4.7,
     reviews: 203,
     images: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop",
+      "gallery/mumbai_2.jpg",
+      "gallery/mumbai_4.jpg",
     ],
     host: {
       name: "Emma",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      avatar: "gallery/avatar_2.jpeg",
       joinDate: "2020",
       reviews: 120,
       verified: true,
@@ -109,12 +109,13 @@ const propertyData = {
     rating: 4.9,
     reviews: 156,
     images: [
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop",
+      "gallery/jaipur_1.jpg",
+      "gallery/jaipur_2.jpg",
+      "gallery/jaipur_3.jpg",
     ],
     host: {
       name: "David",
-      avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+      avatar: "gallery/avatar_3.jpeg",
       joinDate: "2017",
       reviews: 102,
       verified: true,
@@ -141,12 +142,13 @@ const propertyData = {
     rating: 4.8,
     reviews: 94,
     images: [
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop",
+      "gallery/jaisalmer_1.jpg",
+      "gallery/jaisalmer_2.jpg",
+      "gallery/jaisalmer_3.jpg",
     ],
     host: {
       name: "Lisa",
-      avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+      avatar: "gallery/avatar_2.jpeg",
       joinDate: "2016",
       reviews: 77,
       verified: true,
@@ -173,12 +175,14 @@ const propertyData = {
     rating: 4.9,
     reviews: 178,
     images: [
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop",
+      "gallery/nainital_1.jpeg",
+      "gallery/nainital_2.jpg",
+      "gallery/nainital_3.jpg",
+      "gallery/nainital_4.jpeg",
     ],
     host: {
       name: "John",
-      avatar: "https://randomuser.me/api/portraits/men/12.jpg",
+      avatar: "gallery/avatar_3.jpeg",
       joinDate: "2015",
       reviews: 99,
       verified: true,
@@ -205,12 +209,13 @@ const propertyData = {
     rating: 4.8,
     reviews: 112,
     images: [
-      "https://images.unsplash.com/photo-1464983953574-0892a716854b?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=600&h=400&fit=crop",
+      "gallery/banglore_1.jpg",
+      "gallery/banglore_2.jpg",
+      "gallery/banglore_3.jpg",
     ],
     host: {
       name: "Olivia",
-      avatar: "https://randomuser.me/api/portraits/women/50.jpg",
+      avatar: "gallery/avatar_2.jpeg",
       joinDate: "2021",
       reviews: 60,
       verified: true,
@@ -237,12 +242,13 @@ const propertyData = {
     rating: 4.7,
     reviews: 98,
     images: [
-      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=600&h=400&fit=crop",
+      "gallery/munnar_1.jpg",
+      "gallery/munnar_2.jpg",
+      "gallery/munnar_3.jpg",
     ],
     host: {
       name: "Ethan",
-      avatar: "https://randomuser.me/api/portraits/men/60.jpg",
+      avatar: "gallery/avatar_3.jpeg",
       joinDate: "2014",
       reviews: 45,
       verified: true,
@@ -269,12 +275,13 @@ const propertyData = {
     rating: 4.6,
     reviews: 76,
     images: [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?w=600&h=400&fit=crop",
+      "gallery/puducherry_1.jpg",
+      "gallery/puducherry_2.jpg",
+      "gallery/puducherry_3.jpg",
     ],
     host: {
       name: "Priya",
-      avatar: "https://randomuser.me/api/portraits/women/80.jpg",
+      avatar: "gallery/avatar_1.jpeg",
       joinDate: "2019",
       reviews: 30,
       verified: true,
@@ -301,12 +308,13 @@ const propertyData = {
     rating: 4.8,
     reviews: 134,
     images: [
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=600&h=400&fit=crop",
+      "gallery/delhi_1.jpg",
+      "gallery/delhi_2.jpg",
+      "gallery/delhi_3.jpg",
     ],
     host: {
       name: "Lukas",
-      avatar: "https://randomuser.me/api/portraits/men/90.jpg",
+      avatar: "gallery/avatar_4.jpeg",
       joinDate: "2022",
       reviews: 40,
       verified: true,
@@ -333,12 +341,13 @@ const propertyData = {
     rating: 4.9,
     reviews: 201,
     images: [
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?w=600&h=400&fit=crop",
+      "gallery/waynad_1.jpg",
+      "gallery/waynad_2.jpeg",
+      "gallery/waynad_3.jpg",
     ],
     host: {
       name: "Ayu",
-      avatar: "https://randomuser.me/api/portraits/women/99.jpg",
+      avatar: "gallery/avatar_1.jpeg",
       joinDate: "2018",
       reviews: 110,
       verified: true,
@@ -365,12 +374,13 @@ const propertyData = {
     rating: 5.0,
     reviews: 88,
     images: [
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop",
+      "gallery/udaipur_1.jpeg",
+      "gallery/udaipur_2.jpeg",
+      "gallery/udaipur_3.jpeg",
     ],
     host: {
       name: "Fatima",
-      avatar: "https://randomuser.me/api/portraits/women/77.jpg",
+      avatar: "gallery/avatar_2.jpeg",
       joinDate: "2017",
       reviews: 70,
       verified: true,
@@ -389,6 +399,351 @@ const propertyData = {
     ],
     rules: ["Check-in: 3:00 PM - 10:00 PM", "Checkout: 11:00 AM", "No smoking", "No parties or events"],
   },
+  105: {
+    id: 105,
+    title: "Shimla Hilltop Cottage",
+    location: "Shimla, Himachal Pradesh",
+    price: 270,
+    rating: 4.8,
+    reviews: 61,
+    images: [
+      "gallery/shimla_1.jpg",
+      "gallery/shimla_2.jpg",
+      "gallery/shimla_3.jpg",
+    ],
+    host: {
+      name: "Meera",
+      avatar: "gallery/avatar_1.jpeg",
+      joinDate: "2021",
+      reviews: 61,
+      verified: true,
+    },
+    type: "Cottage",
+    guests: 5,
+    bedrooms: 2,
+    bathrooms: 2,
+    description: "Charming cottage with panoramic views of the Shimla hills.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-fire", name: "Fireplace" },
+      { icon: "fas fa-mountain", name: "Mountain view" },
+      { icon: "fas fa-car", name: "Free parking" },
+    ],
+    rules: ["Check-in: 2:00 PM - 9:00 PM", "Checkout: 10:00 AM", "No smoking", "No parties or events"],
+  },
+  106: {
+    id: 106,
+    title: "Mall Road View Apartment",
+    location: "Shimla, Himachal Pradesh",
+    price: 210,
+    rating: 4.6,
+    reviews: 44,
+    images: [
+      "gallery/shimla_3.jpg",
+      "gallery/shimla_4.jpg",
+    ],
+    host: {
+      name: "Rohit",
+      avatar: "gallery/avatar_3.jpeg",  
+      joinDate: "2020",
+      reviews: 44,
+      verified: true,
+    },
+    type: "Apartment",
+    guests: 3,  
+    bedrooms: 1,
+    bathrooms: 1,
+    description: "Modern apartment steps from Shimla's famous Mall Road.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-city", name: "City view" },
+      { icon: "fas fa-elevator", name: "Elevator" },
+    ],
+    rules: ["Check-in: 3:00 PM - 10:00 PM", "Checkout: 11:00 AM", "No smoking", "No pets"],
+  },
+  107: {
+    id: 107,
+    title: "Pine View Villa",
+    location: "Shimla, Himachal Pradesh",
+    price: 320,
+    rating: 4.9,
+    reviews: 72,
+    images: [
+      "gallery/pineview_1.jpg",
+      "gallery/pineview_2.jpg",
+    ],
+    host: {
+      name: "Anjali",
+      avatar: "gallery/avatar_1.jpeg",
+      joinDate: "2019",
+      reviews: 72,
+      verified: true,
+    },
+    type: "Villa",
+    guests: 7,
+    bedrooms: 3,
+    bathrooms: 3,
+    description: "Spacious villa surrounded by pine forests, perfect for families.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-tree", name: "Forest view" },
+      { icon: "fas fa-car", name: "Free parking" },
+      { icon: "fas fa-coffee", name: "Kitchen" },
+    ],
+    rules: ["Check-in: 1:00 PM - 8:00 PM", "Checkout: 10:00 AM", "No smoking", "No parties or events"],
+  },
+  108: {
+    id: 108,
+    title: "Taj Mahal View Suite",
+    location: "Agra, Uttar Pradesh",
+    price: 350,
+    rating: 4.9,
+    reviews: 80,
+    images: [
+      "gallery/tajmahal_1.jpg",
+      "gallery/tajmahal_2.jpg",
+      "gallery/tajmahal_3.jpg",
+    ],
+    host: {
+      name: "Amit",
+      avatar: "gallery/avatar_3.jpeg",
+      joinDate: "2018",
+      reviews: 80,
+      verified: true,
+    },
+    type: "Suite",
+    guests: 4,
+    bedrooms: 2,
+    bathrooms: 2,
+    description: "Luxury suite with a direct view of the Taj Mahal.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-city", name: "City view" },
+      { icon: "fas fa-coffee", name: "Kitchen" },
+      { icon: "fas fa-car", name: "Free parking" },
+    ],
+    rules: ["Check-in: 2:00 PM - 9:00 PM", "Checkout: 10:00 AM", "No smoking", "No parties or events"],
+  },
+  109: {
+    id: 109,
+    title: "Agra Heritage Homestay",
+    location: "Agra, Uttar Pradesh",
+    price: 180,
+    rating: 4.5,
+    reviews: 33,
+    images: [
+      "gallery/agra_3.jpg",
+      "gallery/agra_4.jpg",
+    ],
+    host: {
+      name: "Sana",
+      avatar: "gallery/avatar_2.jpeg",
+      joinDate: "2022",
+      reviews: 33,
+      verified: true,
+    },
+    type: "Homestay",
+    guests: 3,
+    bedrooms: 1,
+    bathrooms: 1,
+    description: "Experience Agra's culture in this cozy heritage homestay.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-city", name: "City view" },
+      { icon: "fas fa-coffee", name: "Kitchen" },
+    ],
+    rules: ["Check-in: 3:00 PM - 10:00 PM", "Checkout: 11:00 AM", "No smoking", "No pets"],
+  },
+  110: {
+    id: 110,
+    title: "Yamuna Riverside Villa",
+    location: "Agra, Uttar Pradesh",
+    price: 290,
+    rating: 4.7,
+    reviews: 51,
+    images: [
+      "gallery/yamuna_1.jpg",
+      "gallery/yamuna_2.jpg",
+      "gallery/yamuna_3.jpg",
+    ],
+    host: {
+      name: "Rakesh",
+      avatar: "gallery/avatar_3.jpeg",
+      joinDate: "2017",
+      reviews: 51,
+      verified: true,
+    },
+    type: "Villa",
+    guests: 6,
+    bedrooms: 3,
+    bathrooms: 2,
+    description: "Elegant villa on the banks of Yamuna, close to the Taj Mahal.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-water", name: "River view" },
+      { icon: "fas fa-car", name: "Free parking" },
+      { icon: "fas fa-coffee", name: "Kitchen" },
+    ],
+    rules: ["Check-in: 1:00 PM - 8:00 PM", "Checkout: 10:00 AM", "No smoking", "No parties or events"],
+  },
+  201: {
+    id: 201,
+    title: "Victoria Memorial View Apartment",
+    location: "Kolkata, West Bengal",
+    price: 260,
+    rating: 4.8,
+    reviews: 58,
+    images: [
+      "gallery/kolkata_1.jpg",
+      "gallery/kolkata_2.jpg",
+      "gallery/kolkata_3.jpg",
+    ],
+    host: {
+      name: "Sourav",
+      avatar: "gallery/avatar_3.jpeg",
+      joinDate: "2020",
+      reviews: 58,
+      verified: true,
+    },
+    type: "Apartment",
+    guests: 4,
+    bedrooms: 2,
+    bathrooms: 2,
+    description: "Modern apartment with stunning views of Victoria Memorial, central Kolkata.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-city", name: "City view" },
+      { icon: "fas fa-elevator", name: "Elevator" },
+      { icon: "fas fa-coffee", name: "Kitchen" },
+    ],
+    rules: ["Check-in: 2:00 PM - 9:00 PM", "Checkout: 10:00 AM", "No smoking", "No parties or events"],
+  },
+  202: {
+    id: 202,
+    title: "Howrah Bridge Riverside Suite",
+    location: "Kolkata, West Bengal",
+    price: 320,
+    rating: 4.9,
+    reviews: 73,
+    images: [
+      "gallery/howrah_1.jpg",
+      "gallery/howrah_2.jpg",
+      "gallery/howrah_3.jpg",
+    ],
+    host: {
+      name: "Priyanka",
+      avatar: "gallery/avatar_2.jpeg",
+      joinDate: "2019",
+      reviews: 73,
+      verified: true,
+    },
+    type: "Suite",
+    guests: 5,
+    bedrooms: 2,
+    bathrooms: 2,
+    description: "Elegant suite on the banks of the Hooghly, near Howrah Bridge.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-water", name: "River view" },
+      { icon: "fas fa-car", name: "Free parking" },
+      { icon: "fas fa-coffee", name: "Kitchen" },
+    ],
+    rules: ["Check-in: 3:00 PM - 10:00 PM", "Checkout: 11:00 AM", "No smoking", "No pets"],
+  },
+  203: {
+    id: 203,
+    title: "Park Street Heritage Home",
+    location: "Kolkata, West Bengal",
+    price: 210,
+    rating: 4.7,
+    reviews: 41,
+    images: [
+      "gallery/kolkata_3.jpg",
+      "gallery/kolkata_1.jpg",
+    ],
+    host: {
+      name: "Anindita",
+      avatar: "gallery/avatar_2.jpeg",
+      joinDate: "2022",
+      reviews: 41,
+      verified: true,
+    },
+    type: "Heritage Home",
+    guests: 3,
+    bedrooms: 1,
+    bathrooms: 1,
+    description: "Charming heritage home in the heart of Park Street, Kolkata's cultural hub.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-city", name: "City view" },
+      { icon: "fas fa-coffee", name: "Kitchen" },
+    ],
+    rules: ["Check-in: 1:00 PM - 8:00 PM", "Checkout: 10:00 AM", "No smoking", "No parties or events"],
+  },
+  13: {
+    id: 13,
+    title: "Hyderabad Property",
+    location: "Hyderabad, Telangana",
+    price: 300,
+    rating: 4.7,
+    reviews: 100,
+    images: [
+      "gallery/hyderabad_1.jpg",
+      "gallery/hyderabad_2.jpg",
+    ],
+    host: {
+      name: "Rajesh",
+      avatar: "gallery/avatar_3.jpeg",
+      joinDate: "2019",
+      reviews: 100,
+      verified: true,
+    },
+    type: "Entire property",
+    guests: 4,
+    bedrooms: 2,
+    bathrooms: 2,
+    description:
+      "Experience the vibrant culture and history of Hyderabad. This property is located in the heart of the city, close to major attractions.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-city", name: "City view" },
+      { icon: "fas fa-car", name: "Free parking" },
+      { icon: "fas fa-coffee", name: "Kitchen" },
+    ],
+    rules: ["Check-in: 3:00 PM - 10:00 PM", "Checkout: 11:00 AM", "No smoking", "No parties or events"],
+  },
+  14: {
+    id: 14,
+    title: "Hitech City Apartment",
+    location: "Hyderabad, Telangana",
+    price: 200,
+    rating: 4.6,
+    reviews: 80,
+    images: [
+      "gallery/hitech_1.jpg",
+      "gallery/hitech_2.jpg",
+    ],
+    host: {
+      name: "Priya",
+      avatar: "gallery/avatar_2.jpeg",
+      joinDate: "2020",
+      reviews: 80,
+      verified: true,
+    },
+    type: "Entire apartment",
+    guests: 3,
+    bedrooms: 1,
+    bathrooms: 1,
+    description:
+      "Stay in the heart of Hyderabad's tech hub! This modern apartment is close to major IT companies and the HITEC City.",
+    amenities: [
+      { icon: "fas fa-wifi", name: "Free WiFi" },
+      { icon: "fas fa-city", name: "City view" },
+      { icon: "fas fa-car", name: "Free parking" },
+      { icon: "fas fa-coffee", name: "Kitchen" },
+    ],
+    rules: ["Check-in: 4:00 PM - 11:00 PM", "Checkout: 11:00 AM", "No smoking", "No pets"],
+  },
 }
 
 // Reviews with Indian names
@@ -396,7 +751,7 @@ const reviews = [
   {
     id: 1,
     user: "Amit Sharma",
-    avatar: "https://randomuser.me/api/portraits/men/1.jpg",
+    avatar: "gallery/avatar_3.jpeg",
     rating: 5,
     date: "March 2024",
     comment:
@@ -405,7 +760,7 @@ const reviews = [
   {
     id: 2,
     user: "Priya Singh",
-    avatar: "https://randomuser.me/api/portraits/women/2.jpg",
+    avatar: "gallery/avatar_2.jpeg",
     rating: 5,
     date: "February 2024",
     comment:
@@ -414,7 +769,7 @@ const reviews = [
   {
     id: 3,
     user: "Rahul Verma",
-    avatar: "https://randomuser.me/api/portraits/men/3.jpg",
+    avatar: "gallery/avatar_3.jpeg",
     rating: 4,
     date: "January 2024",
     comment:
@@ -517,9 +872,25 @@ function nextImage() {
 
 // Toggle like status
 function toggleLike() {
-  isLiked = !isLiked
-  const likeIcon = document.getElementById("likeIcon")
-  likeIcon.style.color = isLiked ? "#ff385c" : "#666"
+  const urlParams = new URLSearchParams(window.location.search);
+  const propertyId = parseInt(urlParams.get('id'));
+  if (!propertyId) return;
+  let favs = JSON.parse(localStorage.getItem('favouriteProperties') || '[]');
+  if (favs.includes(propertyId)) {
+    favs = favs.filter(id => id !== propertyId);
+  } else {
+    favs.push(propertyId);
+  }
+  localStorage.setItem('favouriteProperties', JSON.stringify(favs));
+  // Optionally update the icon/UI
+  const likeIcon = document.getElementById('likeIcon');
+  if (likeIcon) {
+    if (favs.includes(propertyId)) {
+      likeIcon.classList.add('liked');
+    } else {
+      likeIcon.classList.remove('liked');
+    }
+  }
 }
 
 // Load amenities
@@ -579,7 +950,7 @@ function loadReviews() {
 
 // Update booking card
 function updateBookingCard() {
-  document.getElementById("priceAmount").textContent = `$${currentProperty.price}`
+  document.getElementById("priceAmount").textContent = `₹${currentProperty.price}`
   document.getElementById("bookingRating").textContent = currentProperty.rating
   document.getElementById("bookingReviews").textContent = `(${currentProperty.reviews})`
 }
@@ -632,20 +1003,20 @@ function calculateTotal() {
   const breakdown = document.getElementById("priceBreakdown")
   breakdown.innerHTML = `
         <div class="breakdown-item">
-            <span>$${currentProperty.price} x ${nights} nights</span>
-            <span>$${subtotal}</span>
+            <span>₹${currentProperty.price} x ${nights} nights</span>
+            <span>₹${subtotal}</span>
         </div>
         <div class="breakdown-item">
             <span>Cleaning fee</span>
-            <span>$${cleaningFee}</span>
+            <span>₹${cleaningFee}</span>
         </div>
         <div class="breakdown-item">
             <span>Service fee</span>
-            <span>$${serviceFee}</span>
+            <span>₹${serviceFee}</span>
         </div>
         <div class="breakdown-total">
             <span>Total</span>
-            <span>$${total}</span>
+            <span>₹${total}</span>
         </div>
     `
   breakdown.style.display = "block"
