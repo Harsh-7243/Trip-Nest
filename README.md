@@ -1,12 +1,5 @@
 # Trip-Nest
 
-## 👤 Demo Login
-
-> **Note:** For demo purposes, login/signup is restricted to:
->
-> - **Email:** `srivastavaharsh1108@gmail.com`
-> - **Password:** `harshjeet`
-
 ## 💡 Usage Tips
 
 - **Edit Profile:** Click your avatar in the navbar, then the pen icon next to any field.
@@ -30,7 +23,7 @@
 
 ## 📬 Support
 
-For questions or support, open an issue or contact [support@tripnest.com](mailto:support@tripnest.com).
+For questions or support, open an issue or contact [srivastavaharsh1108@gmail.com](mailto:support@tripnest.com).
 
 <p align="center">
   <b>Made with ❤️ for travel lovers.</b>
