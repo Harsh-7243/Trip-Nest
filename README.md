@@ -10,7 +10,7 @@
 
 ## 🤖 Technologies Used
 
-- **HTML5, CSS3, JavaScript (Vanilla)**
+- **HTML5, CSS, JavaScript**
 - **Font Awesome** for icons
 - **LottieFiles** for animations
 - **Netlify** for deployment
@@ -23,7 +23,7 @@
 
 ## 📬 Support
 
-For questions or support, open an issue or contact [srivastavaharsh1108@gmail.com](mailto:support@tripnest.com).
+For questions or support, open an issue or contact [srivastavaharsh1108@gmail.com].
 
 <p align="center">
   <b>Made with ❤️ for travel lovers.</b>
