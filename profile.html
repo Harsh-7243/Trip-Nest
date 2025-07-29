@@ -3,86 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - TripNest</title>
+    <title>Your Profile | TripNest</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="profile.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="profile-body">
-    <button class="floating-back-btn" onclick="window.location.href='index.html'" title="Back to Home">
-        <i class="fas fa-arrow-left"></i>
-    </button>
-    <div class="container profile-container">
-        <div class="profile-card airbnb-profile">
-            <div class="profile-left">
+    <!-- Navigation Bar -->
+    <nav class="profile-nav">
+        <button class="nav-back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Home</span>
+        </button>
+        <div class="nav-logo">TripNest</div>
+        <div></div> <!-- Empty div for flex spacing -->
+    </nav>
+
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <h1>Your Profile</h1>
+            <p>Manage your personal information and account preferences</p>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="profile-card">
+            <!-- Profile Sidebar -->
+            <div class="profile-sidebar">
                 <div class="profile-avatar-section">
-                    <img id="profileAvatar" class="profile-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Picture">
-                    <button class="edit-avatar-btn" title="Change photo"><i class="fas fa-camera"></i></button>
-                    <input type="file" id="avatarInput" accept="image/*" style="display:none;">
+                    <img id="profileAvatar" class="profile-avatar" src="images/profile-placeholder.svg" alt="Profile Avatar">
+                    <button class="edit-avatar-btn" aria-label="Edit profile picture">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                    <input type="file" id="avatarInput" accept="image/*" style="display: none;">
                 </div>
+
                 <div class="profile-basic">
                     <h2 id="profileName">John Doe</h2>
-                    <div class="profile-joined" id="profileJoined">Joined in 2022</div>
+                    <div id="profileJoined" class="profile-joined">Joined in 2022</div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-suitcase"></i>
+                        <span id="tripsCount">12</span>
+                        <span>Trips</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <span id="reviewsCount">8</span>
+                        <span>Reviews</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-bookmark"></i>
+                        <span id="bookmarksCount">15</span>
+                        <span>Saved</span>
+                    </div>
                 </div>
             </div>
-            <div class="profile-right">
-                <form id="profileForm" class="profile-info" autocomplete="off">
-                    <div class="profile-field-row">
-                        <label>Name</label>
-                        <span id="viewName"></span>
-                        <button type="button" class="edit-field-btn" data-field="name"><i class="fas fa-pen"></i></button>
-                        <input type="text" id="editName" class="profile-edit-input" style="display:none;">
+
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Tabs -->
+                <div class="profile-tabs">
+                    <button class="tab-btn" data-tab="personalInfo">Personal Info</button>
+                    <button class="tab-btn" data-tab="security">Security</button>
+                    <button class="tab-btn" data-tab="preferences">Preferences</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="personalInfo" class="profile-tab-content">
+                    <form id="profileForm">
+                        <div class="profile-section">
+                            <h3>Basic Information</h3>
+                            
+                            <div class="profile-field-row">
+                                <label for="editName">Full Name</label>
+                                <div class="field-content">
+                                    <span id="viewName">John Doe</span>
+                                    <input type="text" id="editName" class="profile-edit-input" style="display: none;">
+                                    <button type="button" class="edit-field-btn" data-field="name" aria-label="Edit name">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="profile-field-row">
+                                <label for="editEmail">Email</label>
+                                <div class="field-content">
+                                    <span id="viewEmail">johndoe@email.com</span>
+                                    <span class="verified-badge">Verified</span>
+                                    <input type="email" id="editEmail" class="profile-edit-input" style="display: none;">
+                                    <button type="button" class="edit-field-btn" data-field="email" aria-label="Edit email">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="profile-field-row">
+                                <label for="editPhone">Phone</label>
+                                <div class="field-content">
+                                    <span id="viewPhone">+91 98765 43210</span>
+                                    <input type="tel" id="editPhone" class="profile-edit-input" style="display: none;">
+                                    <button type="button" class="edit-field-btn" data-field="phone" aria-label="Edit phone">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-section">
+                            <h3>Personal Details</h3>
+                            
+                            <div class="profile-field-row">
+                                <label for="editLocation">Location</label>
+                                <div class="field-content">
+                                    <span id="viewLocation">Mumbai, India</span>
+                                    <input type="text" id="editLocation" class="profile-edit-input" style="display: none;">
+                                    <button type="button" class="edit-field-btn" data-field="location" aria-label="Edit location">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="profile-field-row">
+                                <label for="editGender">Gender</label>
+                                <div class="field-content">
+                                    <span id="viewGender">Male</span>
+                                    <select id="editGender" class="profile-edit-input" style="display: none;">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Non-binary">Non-binary</option>
+                                        <option value="Prefer not to say">Prefer not to say</option>
+                                    </select>
+                                    <button type="button" class="edit-field-btn" data-field="gender" aria-label="Edit gender">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="profile-field-row">
+                                <label for="editDOB">Date of Birth</label>
+                                <div class="field-content">
+                                    <span id="viewDOB">1995-01-01</span>
+                                    <input type="date" id="editDOB" class="profile-edit-input" style="display: none;">
+                                    <button type="button" class="edit-field-btn" data-field="dob" aria-label="Edit date of birth">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="profile-field-row bio-row">
+                                <label for="editBio">Bio</label>
+                                <div class="field-content">
+                                    <span id="viewBio">Travel enthusiast and TripNest user.</span>
+                                    <textarea id="editBio" class="profile-edit-input" style="display: none;"></textarea>
+                                    <button type="button" class="edit-field-btn" data-field="bio" aria-label="Edit bio">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="profileSaveBar" class="profile-save-bar" style="display: none;">
+                            <button type="button" class="cancel-profile-btn">Cancel</button>
+                            <button type="submit" class="save-profile-btn">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Security Tab -->
+                <div id="security" class="profile-tab-content">
+                    <div class="coming-soon">
+                        <i class="fas fa-lock"></i>
+                        <h3>Security Settings Coming Soon</h3>
+                        <p>We're working on enhanced security features to keep your account safe. Check back soon!</p>
                     </div>
-                    <div class="profile-field-row">
-                        <label>Email</label>
-                        <span id="viewEmail"></span>
-                        <span class="verified-badge">Verified</span>
-                        <button type="button" class="edit-field-btn" data-field="email"><i class="fas fa-pen"></i></button>
-                        <input type="email" id="editEmail" class="profile-edit-input" style="display:none;">
+                </div>
+
+                <!-- Preferences Tab -->
+                <div id="preferences" class="profile-tab-content">
+                    <div class="coming-soon">
+                        <i class="fas fa-sliders-h"></i>
+                        <h3>Preferences Coming Soon</h3>
+                        <p>Customize your TripNest experience with personalized preferences. This feature is under development.</p>
                     </div>
-                    <div class="profile-field-row">
-                        <label>Phone</label>
-                        <span id="viewPhone"></span>
-                        <button type="button" class="edit-field-btn" data-field="phone"><i class="fas fa-pen"></i></button>
-                        <input type="tel" id="editPhone" class="profile-edit-input" style="display:none;">
-                    </div>
-                    <div class="profile-field-row">
-                        <label>Location</label>
-                        <span id="viewLocation"></span>
-                        <button type="button" class="edit-field-btn" data-field="location"><i class="fas fa-pen"></i></button>
-                        <input type="text" id="editLocation" class="profile-edit-input" style="display:none;">
-                    </div>
-                    <div class="profile-field-row">
-                        <label>Gender</label>
-                        <span id="viewGender"></span>
-                        <button type="button" class="edit-field-btn" data-field="gender"><i class="fas fa-pen"></i></button>
-                        <select id="editGender" class="profile-edit-input" style="display:none;">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="profile-field-row">
-                        <label>Date of Birth</label>
-                        <span id="viewDOB"></span>
-                        <button type="button" class="edit-field-btn" data-field="dob"><i class="fas fa-pen"></i></button>
-                        <input type="date" id="editDOB" class="profile-edit-input" style="display:none;">
-                    </div>
-                    <div class="profile-field-row">
-                        <label>Bio</label>
-                        <span id="viewBio"></span>
-                        <button type="button" class="edit-field-btn" data-field="bio"><i class="fas fa-pen"></i></button>
-                        <textarea id="editBio" class="profile-edit-input" rows="2" style="display:none;"></textarea>
-                    </div>
-                    <div class="profile-save-bar" id="profileSaveBar" style="display:none;">
-                        <button type="submit" class="save-profile-btn">Save Changes</button>
-                        <button type="button" class="cancel-profile-btn">Cancel</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-        <div id="profileToast" class="profile-toast"></div>
     </div>
+
+    <!-- Toast Notification -->
+    <div id="profileToast" class="profile-toast" role="alert"></div>
+
     <script src="profile.js"></script>
 </body>
-</html> 
+</html>
