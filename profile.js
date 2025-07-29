@@ -1,4 +1,4 @@
-// Airbnb-style Profile page JS for TripNest
+// Modern Profile page JS for TripNest
 
 document.addEventListener('DOMContentLoaded', () => {
     const defaultUser = {
@@ -9,13 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
         gender: 'Male',
         dob: '1995-01-01',
         bio: 'Travel enthusiast and TripNest user.',
-        avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-        joined: '2022'
+        avatar: 'images/profile-placeholder.svg',
+        joined: '2022',
+        trips: 12,
+        reviews: 8,
+        bookmarks: 15
     };
     let user = JSON.parse(localStorage.getItem('tripnestUser')) || defaultUser;
     if (!user.joined && user.dob) {
         user.joined = user.dob.split('-')[0] || '2022';
     }
+    // Add stats if they don't exist
+    if (!user.trips) user.trips = defaultUser.trips;
+    if (!user.reviews) user.reviews = defaultUser.reviews;
+    if (!user.bookmarks) user.bookmarks = defaultUser.bookmarks;
+    
     let editedUser = { ...user };
     let editingField = null;
     let changesMade = false;
@@ -50,12 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const avatarInput = document.getElementById('avatarInput');
     const avatarImg = document.getElementById('profileAvatar');
     const editAvatarBtn = document.querySelector('.edit-avatar-btn');
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.profile-tab-content');
+    const navBackBtn = document.querySelector('.nav-back-btn');
 
     // Render view
     function renderView() {
         document.getElementById('profileAvatar').src = user.avatar;
         document.getElementById('profileName').textContent = user.name;
         document.getElementById('profileJoined').textContent = 'Joined in ' + (user.joined || (user.dob ? user.dob.split('-')[0] : '2022'));
+        
+        // Update stats
+        document.getElementById('tripsCount').textContent = user.trips;
+        document.getElementById('reviewsCount').textContent = user.reviews;
+        document.getElementById('bookmarksCount').textContent = user.bookmarks;
+        
         viewEls.name.textContent = user.name;
         viewEls.email.textContent = user.email;
         viewEls.phone.textContent = user.phone;
@@ -64,10 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
         viewEls.dob.textContent = user.dob;
         viewEls.bio.textContent = user.bio;
         fields.forEach(f => {
-            viewEls[f].style.display = '';
-            editEls[f].style.display = 'none';
-            if (editEls[f].parentElement) {
-                editEls[f].parentElement.classList.remove('editing');
+            if (viewEls[f] && editEls[f]) {
+                viewEls[f].style.display = '';
+                editEls[f].style.display = 'none';
+                if (editEls[f].parentElement) {
+                    editEls[f].parentElement.classList.remove('editing');
+                }
             }
         });
         editingField = null;
@@ -77,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start editing a field
     function startEdit(field) {
-        if (editingField) {
+        if (editingField && viewEls[editingField] && editEls[editingField]) {
             viewEls[editingField].style.display = '';
             editEls[editingField].style.display = 'none';
             if (editEls[editingField].parentElement) {
@@ -85,20 +104,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         editingField = field;
-        editEls[field].value = user[field];
-        viewEls[field].style.display = 'none';
-        editEls[field].style.display = '';
-        if (editEls[field].parentElement) {
-            editEls[field].parentElement.classList.add('editing');
+        if (viewEls[field] && editEls[field]) {
+            editEls[field].value = user[field];
+            viewEls[field].style.display = 'none';
+            editEls[field].style.display = '';
+            if (editEls[field].parentElement) {
+                editEls[field].parentElement.classList.add('editing');
+            }
+            editEls[field].focus();
+            saveBar.style.display = 'flex';
         }
-        editEls[field].focus();
-        saveBar.style.display = 'flex';
         changesMade = false;
     }
 
     // Cancel editing
     function cancelEdit() {
-        if (editingField) {
+        if (editingField && viewEls[editingField] && editEls[editingField]) {
             viewEls[editingField].style.display = '';
             editEls[editingField].style.display = 'none';
             if (editEls[editingField].parentElement) {
@@ -109,17 +130,15 @@ document.addEventListener('DOMContentLoaded', () => {
         changesMade = false;
         saveBar.style.display = 'none';
         editedUser = { ...user };
-        // Scroll to top of card for better alignment
-        document.querySelector('.profile-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     // Save changes
     function saveChanges(e) {
-        e.preventDefault();
+        if (e) e.preventDefault();
         // Save if a field is being edited or avatar was changed
         if (!editingField && !avatarChanged) return;
         let val;
-        if (editingField) {
+        if (editingField && editEls[editingField]) {
             val = editEls[editingField].value;
             if (val !== user[editingField]) {
                 editedUser[editingField] = val;
@@ -133,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (changesMade || avatarChanged) {
             user = { ...user, ...editedUser };
             localStorage.setItem('tripnestUser', JSON.stringify(user));
-            showToast('Profile updated!');
+            showToast('Profile updated successfully!');
         }
         avatarChanged = false;
         renderView();
@@ -145,8 +164,36 @@ document.addEventListener('DOMContentLoaded', () => {
         toast.classList.add('show');
         toast.setAttribute('role', 'status');
         toast.setAttribute('aria-live', 'polite');
-        setTimeout(() => toast.classList.remove('show'), 1800);
+        setTimeout(() => toast.classList.remove('show'), 2000);
     }
+
+    // Tab functionality
+    function switchTab(tabId) {
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-tab') === tabId) {
+                btn.classList.add('active');
+            }
+        });
+        
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.id === tabId) {
+                content.classList.add('active');
+            }
+        });
+    }
+
+    // Initialize tabs
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+            switchTab(tabId);
+        });
+    });
+
+    // Set default active tab
+    switchTab('personalInfo');
 
     // Inline edit button listeners
     editBtns.forEach(btn => {
@@ -158,44 +205,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Listen for input changes to show save bar
     Object.keys(editEls).forEach(f => {
-        editEls[f].addEventListener('input', () => {
-            changesMade = (editEls[f].value !== user[f]);
-            saveBar.style.display = changesMade ? 'flex' : 'none';
-        });
-        // Keyboard accessibility
-        editEls[f].addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                form.requestSubmit();
-            } else if (e.key === 'Escape') {
-                cancelEdit();
-            }
-        });
+        if (editEls[f]) {
+            editEls[f].addEventListener('input', () => {
+                changesMade = (editEls[f].value !== user[f]);
+                saveBar.style.display = changesMade ? 'flex' : 'none';
+            });
+            // Keyboard accessibility
+            editEls[f].addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    form.requestSubmit();
+                } else if (e.key === 'Escape') {
+                    cancelEdit();
+                }
+            });
+        }
     });
 
     // Cancel button
-    cancelBtn.onclick = cancelEdit;
+    if (cancelBtn) {
+        cancelBtn.onclick = cancelEdit;
+    }
 
     // Save button
-    form.onsubmit = saveChanges;
+    if (form) {
+        form.onsubmit = saveChanges;
+    }
 
     // Avatar editing
-    editAvatarBtn.onclick = () => {
-        avatarInput.click();
-    };
-    avatarInput.onchange = function() {
-        const file = this.files[0];
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                avatarImg.src = e.target.result;
-                editedUser.avatar = e.target.result;
-                saveBar.style.display = 'flex';
-                changesMade = true;
-                avatarChanged = true;
-            };
-            reader.readAsDataURL(file);
-        }
-    };
+    if (editAvatarBtn && avatarInput) {
+        editAvatarBtn.onclick = () => {
+            avatarInput.click();
+        };
+        avatarInput.onchange = function() {
+            const file = this.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    avatarImg.src = e.target.result;
+                    editedUser.avatar = e.target.result;
+                    saveBar.style.display = 'flex';
+                    changesMade = true;
+                    avatarChanged = true;
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+    }
+
+    // Back button functionality
+    if (navBackBtn) {
+        navBackBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    }
 
     renderView();
-}); 
+});
